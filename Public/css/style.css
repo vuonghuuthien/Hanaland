@@ -1,0 +1,160 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Helvetica';
+}
+html, body {
+    /* overflow: hidden; */
+    font-size: 23px;
+    height: 100%;
+}
+/* 
+@font-face { font-family: HelveticaLight; src: url('./../fonts/Helvetica/HelveticaLight.ttf'); } 
+@font-face { font-family: HelveticaLightOblique; src: url('./../fonts/Helvetica/HelveticaLightOblique.ttf'); } 
+@font-face { font-family: Helvetica; src: url('./../fonts/Helvetica/Helvetica.ttf'); } 
+@font-face { font-family: HelveticaBold; src: url('./../fonts/Helvetica/HelveticaBold.ttf'); }
+@font-face { font-family: HelveticaBoldOblique; src: url('./../fonts/Helvetica/HelveticaBoldOblique.ttf'); }
+@font-face { font-family: HelveticaOblique; src: url('./../fonts/Helvetica/HelveticaOblique.ttf'); } 
+*/
+.navigationBar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 85px;
+    box-sizing: border-box;
+    /* background-color: #00ff00;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25); */
+}
+.navigationBar_temp {
+    height: 100px;
+}
+.menuNavigation {
+    margin-top: 48px;
+    margin-left: calc(50vw - 156px);
+    position: fixed;
+    width: 100vw;
+    cursor: pointer;
+}
+.navigationBar ul {
+    padding: 0;
+    display: flex;
+}
+.navigationBar ul li {
+    position: relative;
+    list-style: none;   /* delete dot */
+}
+.navigationBar .menuNavigation ul li:nth-child(1) {
+    margin-right: 17px;
+}
+.navigationBar .menuNavigation ul li:nth-child(2) {
+    margin-left: 17px;
+}
+.navigationBar .language ul li:nth-child(1) {
+    margin-right: 3px;
+}
+.navigationBar .language ul li:nth-child(2) {
+    margin-left: 3px;
+}
+.navigationBar ul li a
+{
+    font-size: 1rem;
+    color: #fff;
+    padding: 5px 0px;
+    font-weight: 500;
+    text-decoration: none;  /* delete underlined */
+    text-transform: uppercase;
+    /* font-family: 'Helvetica'; */
+}
+.navigationBar ul li a.active
+{
+    color: #6ebb24;
+}
+.navigationBar ul li a:hover
+{
+    color: #9fe62c;
+}
+.navigationBar ul li a.space {
+    position: absolute;
+    margin-top: -8px;
+    margin-left: -5px;
+    font-size: 1.2rem;
+}
+.navigationBar ul li a.signup {
+    padding-left: 18px;
+
+}
+.language {
+    cursor: pointer;
+    position: relative;
+    margin-top: 1.8rem;
+    right: 1.5vw;
+    color: #6ebb24;
+    float: right;
+}
+.language ul li div{
+    color: #eee;
+    /* font-family: 'Helvetica'; */
+}
+.language ul li div.active {
+    color: #6ebb24;
+}
+.language ul li div:hover {
+    color: #80ca09;
+}
+.language ul:nth-child(2) {
+    position: absolute;
+    font-size: 0.53rem;
+    top: 1rem;
+    left: 1.5px;
+    white-space: nowrap;
+    /* font-family: 'Helvetica';     */
+    color: #6ebb24;
+}
+
+
+.dangkythanhvien {
+    width: 400px;
+    border: 1px solid #000;
+    margin: 0px auto;
+    margin-top: 60px;
+}
+
+.dangkythanhvien h3 {
+    background: #009688;
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+}
+
+.dangkythanhvien form table tr td {
+    padding: 5px;
+}
+
+.dangkythanhvien form table tr td input {
+    padding: 3px 5px;
+}
+
+.danhsach {
+    width: 800px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.danhsach table {
+    width: 500px;
+    border: 1px solid #999;
+}
+
+.danhsach h3 {
+    background: #009688;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+
+.timkiem {
+    margin: auto;
+    margin-top: 50px;
+    width: 800px;
+}
