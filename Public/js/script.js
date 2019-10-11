@@ -1,5 +1,5 @@
 var languageType = "vn";
-function language(languageType_new) {
+function language(languageType_new, href) {
     if (languageType_new !== languageType) {
         if (languageType_new === "vn") {
             // lang
@@ -18,6 +18,7 @@ function language(languageType_new) {
             $(".scroll_4").html("Liên Hệ&nbsp;<span>|</span>");
 
             //$.get("./index.php", {"language": $(this).attr("vn")});
+            href = href.replace("en", "vn");
         } else { // en
             // lang
             $(".info_language").html("NGÔN NGỮ");
@@ -34,8 +35,11 @@ function language(languageType_new) {
             $(".scroll_3").html("All Projects&nbsp;<span>|</span>");
             $(".scroll_4").html("Contact&nbsp;<span>|</span>");
             //$.get("./index.php", {"language": $(this).attr("en")});
+            href = href.replace("vn", "en");
         }
         languageType = languageType_new;
+        alert(href);
+        window.location = href;  
     }
 }
 var menuType = "home";

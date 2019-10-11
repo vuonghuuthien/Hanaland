@@ -1,17 +1,21 @@
 <?php
     // Start the session
     session_start();
-    if (!isset($_SESSION['language'])) {
-        $_SESSION['language'] = 'vn';
+    if (!isset($_SESSION['lang'])) {
+        $_SESSION['lang'] = 'vn';
     }
     if (!isset($_SESSION['href'])) {
         $_SESSION['href'] = 'index.php?lang=vn';
     }
-    if (isset($_GET['language']) and  $_GET['language'] !== $_SESSION['language']) {
-        $_SESSION['href'] = 'index.php?lang=' + $_SESSION['language'];
+    if (isset($_GET['lang']) and  $_GET['lang'] !== $_SESSION['lang']) {
+        $_SESSION['href'] = 'index.php?lang=' . $_SESSION['lang'];
     }
-
-
+    if (!isset($_SESSION['page'])) {
+        $_SESSION['page'] = 'home';
+    }
+    if (isset($_GET['controller']) and  $_GET['controller'] !== $_SESSION['page']) {
+        $_SESSION['page'] = $_GET['controller'];
+    }
 
     if( isset( $_SESSION['counter'] ) ) { 
         $_SESSION['counter'] += 1; 
@@ -75,16 +79,47 @@
     <title>Hanaland</title>
 </head>
 <body>
+    <?php 
+        if(isset($_GET['lang'])) {
+            $lang = $_GET['lang'];
+        } else {
+            $controller = '';
+        }
+        // Require_once file in Controller // Include vs Include_once vs Require vs Require_once
+        switch($controller) {
+            case 'users': {
+                //require_once('View/thanhvien/add_user.php');
+                echo '<link rel="stylesheet" type="text/css" href="./Public/css/users/style.css">';
+                break;
+            }
+            case 'login': {
+                echo '<link rel="stylesheet" type="text/css" href="./Public/css/login/style.css">';
+                break;
+            }
+            case 'signup': {
+                echo '<link rel="stylesheet" type="text/css" href="./Public/css/signup/style.css">';
+                break;
+            }
+            case 'home': {
+                echo '<link rel="stylesheet" type="text/css" href="./Public/css/home/style.css">';
+                break;
+            }
+            default: {
+                echo '<link rel="stylesheet" type="text/css" href="./Public/css/home/style.css">';
+                break;
+            }
+        }
+    ?>
     <div class="navigationBar">
         <div class="background"></div>
         <div class="logo"></div>
         <div class="menuNavigation">
             <ul>
-                <li><a href="index.php?controller=home" class="home active" onclick="menu('home')">Trang Chủ</a></li>
+                <li><a href="<?php echo($_SESSION['href'] . '&controller=home');?>" class="home active" onclick="menu('home')">Trang Chủ</a></li>
                 <li>
-                    <a href="index.php?controller=login" class="login" onclick="menu('login')">Đăng Nhập</a>
+                    <a href="<?php echo($_SESSION['href'] . '&controller=login');?>" class="login" onclick="menu('login')">Đăng Nhập</a>
                     <a class="space">/</a>
-                    <a href="index.php?controller=signup" class="signup" onclick="menu('signup')">Đăng Ký</a>
+                    <a href="<?php echo($_SESSION['href'] . '&controller=signup');?>" class="signup" onclick="menu('signup')">Đăng Ký</a>
                 </li>
             </ul>
         </div>
@@ -93,14 +128,21 @@
         </div>
         <div class="language">
             <ul>
-                <li><div class="en" onclick="language('en') <?php $demo_lang = 'en' ?> ">EN</div></li>
-                <li><div class="vn active" onclick="language('vn') <?php $demo_lang = 'vn' ?> ">VN</div></li>
+                <li><div class="en" onclick="language('en', '<?php echo($_SESSION['href'] . '&controller=' . $_SESSION['page']);?>')">EN</div></li>
+                <li><div class="vn active" onclick="language('vn', '<?php echo($_SESSION['href'] . '&controller=' . $_SESSION['page']);?>')">VN</div></li>
             </ul>
             <ul class="info_language">LANGUAGE</ul>
         </div>
     </div>
     <?php //echo ( $msg ); ?>
-    <?php echo ( $_SESSION['language'] ); echo $demo_lang;?>
+    <?php 
+        echo ( $_SESSION['lang'] ) . '<br>'; 
+        echo ($_SESSION['href'] . '<br>'); 
+        echo $_SERVER['REQUEST_URI'] . '<br>'; 
+        $pos = strpos($_SERVER['REQUEST_URI'], 'index.php');
+        echo substr($_SERVER['REQUEST_URI'], $pos)."<br>";
+
+    ?>
     <div class="navigationBar_temp"></div>
     <?php
         // Kết nối đối Database
@@ -134,17 +176,17 @@
             case 'home': {
                 $_SESSION['page'] = 'home';
                 require_once('Controller/home/index.php');
-                echo '<script src="./Public/js/home/script.js"></script>';
+                //echo '<script src="./Public/js/home/script.js"></script>';
                 break;
             }
             default: {
                 $_SESSION['page'] = 'home';
                 require_once('Controller/home/index.php');
-                echo '<script src="./Public/js/home/script.js"></script>';
                 break;
             }
         }
     ?>
+    <script src="./Public/js/script.php"></script>
     <script src="./Public/js/script.js"></script>
 </body>
 </html>
