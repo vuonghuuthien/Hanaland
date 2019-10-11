@@ -34,7 +34,6 @@ html, body {
     margin-left: calc(50vw - 156px);
     position: fixed;
     width: 100vw;
-    cursor: pointer;
 }
 .navigationBar ul {
     padding: 0;
@@ -58,6 +57,7 @@ html, body {
 }
 .navigationBar ul li a
 {
+    cursor: pointer;
     font-size: 1rem;
     color: #fff;
     padding: 5px 0px;
@@ -85,21 +85,22 @@ html, body {
 
 }
 .language {
-    cursor: pointer;
+    cursor: default;
     position: relative;
     margin-top: 1.8rem;
     right: 1.5vw;
     color: #6ebb24;
     float: right;
 }
-.language ul li div{
+.language ul li a{
     color: #eee;
     /* font-family: 'Helvetica'; */
 }
-.language ul li div.active {
+.language ul li a.active {
     color: #6ebb24;
+    cursor: pointer;
 }
-.language ul li div:hover {
+.language ul li a:hover {
     color: #80ca09;
 }
 .language ul:nth-child(2) {
@@ -111,7 +112,9 @@ html, body {
     /* font-family: 'Helvetica';     */
     color: #6ebb24;
 }
-
+.disabled {
+    pointer-events: none;
+}
 
 .dangkythanhvien {
     width: 400px;
