@@ -1,7 +1,7 @@
 <div class="container_signin">
     <h1 class="title_signin none">Hi ! My friend !</h1>
     
-    <form class="form none" action="" method="POST">
+    <form class="form" action="" method="POST">
         <span class="fa fa-user"></span>
         <input type="text" placeholder="User Name" id="username" name="username">
         <span class="fa fa-unlock-alt"></span>

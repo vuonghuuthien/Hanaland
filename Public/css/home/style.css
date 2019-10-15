@@ -7,21 +7,32 @@
 .scroll ul {
     position: relative;
     text-align: right;
-    color: #eee;
     font-size: 1rem;
     font-family: 'Myriad';
 }
-.scroll ul.active {
+.scroll ul a {
+    text-decoration:none;
+    color: #eee;
+    padding-left: 0.4rem;
+    padding-right: 0.1rem;
+}
+.scroll ul a.active {
     color: #6ebb24;
+    background: #fff;
 }
-.scroll ul:hover {
+.scroll ul a:hover {
     color: #80ca09;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
 }
-.scroll ul span {
+.scroll ul a span {
     position: absolute;
     top: -7px;
     /* font-family: 'Helvetica'; */
     font-size: 1.4rem;
+}
+.welcome {
+    width: 100%;
+    height: 100%;
 }
 .rectangle_1, 
 .rectangle_2 {
@@ -150,4 +161,25 @@
     animation-delay:0.2s;
     animation-iteration-count:infinite;
     animation-timing-function:linear;
+}
+
+.bestProject {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #80ca09 0%, #a0e62c 100%);
+    background-image: -webkit-linear-gradient(to top, #80ca09 0%, #a0e62c 100%);
+    background-image: -moz-linear-gradient(to top, #80ca09 0%, #a0e62c 100%);
+    background-image: -ms-linear-gradient(to top, #80ca09 0%, #a0e62c 100%);
+    background-image: -o-linear-gradient(to top, #80ca09 0%, #a0e62c 100%);
+}
+
+.allProject {
+    width: 100%;
+    height: 100%;
+}
+
+.contact {
+    width: 100%;
+    height: 100%;
+    background: #292929;
 }

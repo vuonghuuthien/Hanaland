@@ -1,3 +1,6 @@
+:root {
+    --heightNav: 120px;
+}
 * {
     margin: 0px;
     padding: 0px;
@@ -8,6 +11,12 @@ html, body {
     font-size: 23px;
     height: 100%;
 }
+.block {
+    display: block;
+} 
+.none {
+    display: none;
+}
 /* 
 @font-face { font-family: HelveticaLight; src: url('./../fonts/Helvetica/HelveticaLight.ttf'); } 
 @font-face { font-family: HelveticaLightOblique; src: url('./../fonts/Helvetica/HelveticaLightOblique.ttf'); } 
@@ -17,23 +26,26 @@ html, body {
 @font-face { font-family: HelveticaOblique; src: url('./../fonts/Helvetica/HelveticaOblique.ttf'); } 
 */
 .navigationBar {
+    z-index: 10;
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
-    height: 85px;
+    height: var(--heightNav);
     box-sizing: border-box;
-    /* background-color: #00ff00;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25); */
+    transition: all 0.4s;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    align-items: center;
+    -webkit-align-items: center; /* Safari 7.0+ */
+}
+.navigationBarShort {
+    height: calc(var(--heightNav) - 2.5rem);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
 }
 .navigationBar_temp {
-    height: 100px;
-}
-.menuNavigation {
-    margin-top: 48px;
-    margin-left: calc(50vw - 156px);
-    position: fixed;
-    width: 100vw;
+    height: var(--heightNav);
 }
 .navigationBar ul {
     padding: 0;
@@ -43,28 +55,19 @@ html, body {
     position: relative;
     list-style: none;   /* delete dot */
 }
-.navigationBar .menuNavigation ul li:nth-child(1) {
-    margin-right: 17px;
-}
-.navigationBar .menuNavigation ul li:nth-child(2) {
-    margin-left: 17px;
-}
-.navigationBar .language ul li:nth-child(1) {
-    margin-right: 3px;
-}
-.navigationBar .language ul li:nth-child(2) {
-    margin-left: 3px;
-}
 .navigationBar ul li a
 {
     cursor: pointer;
     font-size: 1rem;
     color: #fff;
-    padding: 5px 0px;
     font-weight: 500;
     text-decoration: none;  /* delete underlined */
     text-transform: uppercase;
     /* font-family: 'Helvetica'; */
+    /* text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25); */
+}
+.navigationBarShort ul li a {
+    color: #eee;
 }
 .navigationBar ul li a.active
 {
@@ -73,35 +76,82 @@ html, body {
 .navigationBar ul li a:hover
 {
     color: #9fe62c;
+    font-weight: 600;
 }
-.navigationBar ul li a.space {
-    position: absolute;
-    margin-top: -8px;
-    margin-left: -5px;
-    font-size: 1.2rem;
+.menuNavigation {
+    width: 100%;
+    /* background: #292929; */
+    flex-direction: row;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    justify-content: center;
 }
-.navigationBar ul li a.signup {
-    padding-left: 18px;
+.menuNavigation ul {
+    margin-top: 1rem;
+    width: 55%;
+    text-align: center;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    justify-content: center;
+}
+.navigationBarShort .menuNavigation ul {
+    margin-top: 0;
+    width: 50%;
+}
+.en .menuNavigation ul {
+    width: 40%;
+}
+.menuNavigation ul li {
+    -webkit-flex: 1; /* Safari 6.1+ */
+    flex: 1;
+}
+.menuNavigation ul li:nth-child(1) {
+    text-align: right;
+    margin-top: 0.4rem;
+}
+.menuNavigation ul li:nth-child(2) {
+    text-align: center;
+}
+.menuNavigation ul li:nth-child(3) {
+    text-align: left;
+    margin-top: 0.4rem;
+}
+.menuNavigation ul li a {
+    font-size: 0.9rem;
+}
+.menuNavigation ul li a.active {
+    font-size: 1.6rem;
+    font-weight: 600;
+    /* text-decoration: underline; */
+}
+.navigationBarShort .menuNavigation ul li:nth-child(1),
+.navigationBarShort .menuNavigation ul li:nth-child(3) {
+    margin-top: 0;
+}
+.navigationBarShort .menuNavigation ul li a,
+.navigationBarShort .menuNavigation ul li a.active {
+    font-size: 1rem;
+}
 
+.navigationBarShort .logo {
+    cursor: pointer;
+    position: fixed;
+    margin-top: 0.1rem;
+    left: 1.52vw;
+    color: #6ebb24;
+    height: 50px;
+    width: 100px;
+    background-image: url("./../../Public/img/logoHanaland.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 .language {
     cursor: default;
-    position: relative;
-    margin-top: 1.8rem;
+    position: fixed;
+    margin-top: -0.21rem;
     right: 1.5vw;
     color: #6ebb24;
-    float: right;
-}
-.language ul li a{
-    color: #eee;
-    /* font-family: 'Helvetica'; */
-}
-.language ul li a.active {
-    color: #6ebb24;
-    cursor: pointer;
-}
-.language ul li a:hover {
-    color: #80ca09;
 }
 .language ul:nth-child(2) {
     position: absolute;
@@ -112,9 +162,24 @@ html, body {
     /* font-family: 'Helvetica';     */
     color: #6ebb24;
 }
+.language ul li:nth-child(1) {
+    margin-right: 3px;
+}
+.language ul li:nth-child(2) {
+    margin-left: 3px;
+}
+.language ul li a{
+    color: #eee;
+    cursor: pointer;
+    /* font-family: 'Helvetica'; */
+}
 .disabled {
     pointer-events: none;
 }
+::-webkit-scrollbar {
+    display: none;
+}
+
 
 .dangkythanhvien {
     width: 400px;

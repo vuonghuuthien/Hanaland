@@ -80,17 +80,13 @@
     <title>Hanaland</title>
 </head>
 <body class="<?= $_SESSION['lang'] ?>">
-    <div class="navigationBar">
-        <div class="background"></div>
+    <div class="navigationBar <?php if($_SESSION['page']!='home') { echo ('navigationBarShort'); }?>">
         <div class="logo"></div>
         <div class="menuNavigation">
             <ul>
+                <li><a href="<?php echo($_SESSION['href'] . '&controller=login');?>" class="login <?php if($_SESSION['page']=='login') { echo ('active disabled'); } ?>" onclick="menu('login')">Đăng Nhập</a></li>
                 <li><a href="<?php echo($_SESSION['href'] . '&controller=home');?>" class="home <?php if($_SESSION['page']=='home') { echo ('active disabled'); } ?>" onclick="menu('home')">Trang Chủ</a></li>
-                <li>
-                    <a href="<?php echo($_SESSION['href'] . '&controller=login');?>" class="login <?php if($_SESSION['page']=='login') { echo ('active disabled'); } ?>" onclick="menu('login')">Đăng Nhập</a>
-                    <a class="space">/</a>
-                    <a href="<?php echo($_SESSION['href'] . '&controller=signup');?>" class="signup <?php if($_SESSION['page']=='signup') { echo ('active disabled'); } ?>" onclick="menu('signup')">Đăng Ký</a>
-                </li>
+                <li><a href="<?php echo($_SESSION['href'] . '&controller=signup');?>" class="signup <?php if($_SESSION['page']=='signup') { echo ('active disabled'); } ?>" onclick="menu('signup')">Đăng Ký</a></li>
             </ul>
         </div>
         <div class="menuHamburger">
