@@ -84,13 +84,18 @@
         <div class="logo"></div>
         <div class="menuNavigation">
             <ul>
-                <li><a href="<?php echo($_SESSION['href'] . '&controller=login');?>" class="login <?php if($_SESSION['page']=='login') { echo ('active disabled'); } ?>" onclick="menu('login')">Đăng Nhập</a></li>
-                <li><a href="<?php echo($_SESSION['href'] . '&controller=home');?>" class="home <?php if($_SESSION['page']=='home') { echo ('active disabled'); } ?>" onclick="menu('home')">Trang Chủ</a></li>
-                <li><a href="<?php echo($_SESSION['href'] . '&controller=signup');?>" class="signup <?php if($_SESSION['page']=='signup') { echo ('active disabled'); } ?>" onclick="menu('signup')">Đăng Ký</a></li>
+                <li><a href="<?php echo($_SESSION['href'] . '&controller=login');?>" class="login <?php if($_SESSION['page']=='login') { echo ('active disabled'); } ?>">Đăng Nhập</a></li>
+                <li><a href="<?php echo($_SESSION['href'] . '&controller=home');?>" class="home <?php if($_SESSION['page']=='home') { echo ('active disabled'); } ?>">Trang Chủ</a></li>
+                <li><a href="<?php echo($_SESSION['href'] . '&controller=signup');?>" class="signup <?php if($_SESSION['page']=='signup') { echo ('active disabled'); } ?>">Đăng Ký</a></li>
             </ul>
         </div>
         <div class="menuHamburger">
-            <div class="icon"></div>
+            <div class="icon_menuHamburger"></div>
+        </div>
+        <div class="account">
+            <div class="avatar_account"></div>
+            <div class="name_account"></div>
+            <div class="logout_account"></div>
         </div>
         <?php
             $href = $_SESSION['href'] . '&controller=' . $_SESSION['page']; 
@@ -133,16 +138,16 @@
             }
             case 'home': {
                 require_once('Controller/home/index.php');
-                //echo '<script src="./Public/js/home/script.js"></script>';
+                echo '<script src="./Public/js/home/script.js"></script>';
                 break;
             }
             default: {
                 require_once('Controller/home/index.php');
+                echo '<script src="./Public/js/home/script.js"></script>';
                 break;
             }
         }
     ?>
-    <!-- <script src="./Public/js/script.php"></script> -->
     <script src="./Public/js/script.js"></script>
 </body>
 </html>

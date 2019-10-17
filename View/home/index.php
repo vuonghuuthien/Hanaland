@@ -7,6 +7,8 @@
 </div>
 <div class="rectangle_1"></div>
 <div class="rectangle_2"></div>
+<!-- <div class="rectangle_1 rectangle_1_moved"></div>
+<div class="rectangle_2 rectangle_2_moved"></div> -->
 <div class="welcome" id="welcome">
     <div class="logo_white"></div>
     <div class="title"></div>
