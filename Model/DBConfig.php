@@ -4,7 +4,6 @@
         private $username = 'root';
         private $pass = '';
         private $dbname = 'hanaland';
-
         private $conn = NULL;
         private $result = NULL;
         

@@ -12,6 +12,7 @@
     switch($action) {
         default: {
             $m_a_u = 0; // -1 delete // 1 manager // 2 admin // 3 user
+            $image = '';
             if (isset($_POST['login'])) {
                 $username = $_POST['username'];
                 $password = md5($_POST['password']);

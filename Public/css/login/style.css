@@ -20,37 +20,25 @@ body {
     padding-top: 15%;
     text-align: center;
 }
-h1.title_signin 
-{
-    font-family: 'SourceSansPro';
-    font-weight: 400;
-    /* display: none; */
-    font-size: 2rem;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-put;
-    font-weight: 400;
-}
 form 
 {
-    /* display: none; */
-    padding: 20px 0;
+    font-family: 'Helvetica';
     position: relative;
 }
 form input 
 {
-    font-family: 'SourceSansPro';
     font-weight: 400;
     box-sizing: border-box;
     -webkit-appearance: none;
         -moz-appearance: none;
             appearance: none;
     outline: 0;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 0.05em solid rgba(255, 255, 255, 0.4);
     background-color: rgba(255, 255, 255, 0.2);
-    width: 250px;
+    width: 10.9rem;
     border-radius: 3px;
-    padding: 10px 15px;
-    margin: 0 auto 10px auto;
+    padding: 0.5rem 0.6rem;
+    margin: 0 auto 0.5rem auto;
     display: block;
     text-align: center;
     font-size: 0.75rem;
@@ -58,16 +46,25 @@ form input
     transition-duration: 0.25s;
     font-weight: 400;
 }
+form input.haveValue {
+    font-weight: bold;
+    padding-left: 2.5rem;
+    /* background-color: white;
+    width: 10.9rem;
+    color: #53e3a6; */
+}
+form input.haveValue:focus {
+    padding-left: 0.6rem;
+}
 form input:hover 
 {
     background-color: rgba(255, 255, 255, 0.4); 
 }
 form input:focus 
 {
-    font-family: 'Helvetica';
     font-weight: bold;
     background-color: white;
-    width: 300px;
+    width: 15rem;
     color: #53e3a6;
 }
 form input::placeholder {
@@ -75,22 +72,18 @@ form input::placeholder {
 }
 form span
 {
-    box-sizing: border-box;
     z-index: -1;
     position: absolute;
-    left: calc(50% - 122px);
-    width: 40px;
-    height: 38px;
-    margin-top: 2.9px;
-    padding: 10px 0 0 0.5px;
-    text-align: center;
-    font-size: 1rem;
+    width: 1.65rem;
+    height: 1.3rem;
+    margin-top: 0.15rem;
+    margin-left: -5.3rem;
+    padding-top: 0.35rem;
     background-color: rgba(255, 255, 255, 0.4); 
-    border-radius: 3px;
+    border-radius: 2px;
 }
 form #login 
 {
-    font-family: 'Helvetica';
     font-weight: bold;
     -webkit-appearance: none;
         -moz-appearance: none;
@@ -99,7 +92,7 @@ form #login
     background-color: white;
     border: 0;
     padding: 10px 15px;
-    color: #53e3a6;
+    color: #07a52a;
     border-radius: 3px;
     width: 250px;
     cursor: pointer;
@@ -109,4 +102,57 @@ form #login
 form #login:hover 
 {
     background-color: #f5f7f9;
+}
+.checkbox {
+    width: 250px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: left;
+    font-size: 0.75rem;
+}
+form input[type=checkbox] + label {
+    display: block;
+    cursor: pointer;
+}
+  
+form input[type=checkbox] {
+    display: none;
+}
+
+form input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.05em solid rgba(255, 255, 255, 0.4);
+    border-radius: 0.06em;
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    padding-bottom: 0.5em;
+    margin-right: 0.4em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    color: rgba(255, 255, 255, 0.2);
+}
+  
+form input[type=checkbox] + label:active:before {
+    transform: scale(0);
+}
+
+form input[type=checkbox]:checked + label:before {
+    background-color: #07a52a;
+    border-color: #07a52a;
+    color: #fff;
+}
+  
+form input[type=checkbox]:disabled + label:before {
+    transform: scale(1);
+    border-color: #aaa;
+}
+  
+form input[type=checkbox]:checked:disabled + label:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
 }

@@ -25,6 +25,11 @@
     } 
     $msg = "Bạn đã vào trang ". $_SESSION['counter']; 
     $msg .= " lần trong phiên này.";
+    // Cookie
+    if( isset($_COOKIE["login"])) {
+        setcookie("username", "Tran Minh Chinh", time()+3600*24*7, "/","", 0);
+        setcookie("password", "25", time()+3600*24*7, "/", "",  0);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +37,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./Public/css/style.css">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"> -->
+    <link rel="stylesheet" type="text/css" href="./Public/css/all.min.css">
     <script type="text/javascript" src="./Public/js/jquery-3.4.1.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./Public/css/home/style.css"> -->
     <?php 
@@ -94,8 +99,9 @@
         </div>
         <div class="account">
             <div class="avatar_account"></div>
-            <div class="name_account"></div>
-            <div class="logout_account"></div>
+            <div class="name_account">Thomas K.Wilson</div>
+            <br>
+            <div class="logout_account">LOGIN</div>
         </div>
         <?php
             $href = $_SESSION['href'] . '&controller=' . $_SESSION['page']; 
@@ -130,6 +136,7 @@
             }
             case 'login': {
                 require_once('Controller/login/index.php');
+                echo '<script src="./Public/js/login/script.js"></script>';
                 break;
             }
             case 'signup': {
