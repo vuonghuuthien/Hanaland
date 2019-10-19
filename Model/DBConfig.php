@@ -31,6 +31,7 @@
                             phone varchar(22),
                             email varchar(255),
                             active boolean not null default 1,
+                            position tinyint(1) default 3,
                             PRIMARY KEY  (id)
                     )";
                     if ($this->conn->query($sql) === TRUE) {
@@ -41,7 +42,14 @@
                     //echo "<script type='text/javascript'>alert('$message');</script>";
                     // Thêm user
                     $temp_password = md5('12345678');
-                    $sql = "INSERT INTO  users(id, username, password, avatar, fullname, sex, birthday, address, phone, email) VALUES (null, 'user', '$temp_password', 'demo.jpg', 'Nguyen Van A', 'w', '1997-11-01', '123 Đường ABC XYZ, TP JDK', '(555) 555-555-555', 'thisisemail@gmail.com')";
+                    $sql = "INSERT INTO  users(id, username, password, avatar, fullname, sex, birthday, address, phone, email) 
+                    VALUES (null, 'user', '$temp_password', 'demo.jpg', 'Nguyen Van A', 'w', '1997-11-01', '123 Đường ABC XYZ, TP JDK', '(555) 555-555-555', 'thisisuser@gmail.com')";
+                    $this->conn->query($sql);
+                    $sql = "INSERT INTO  users(id, username, password, avatar, fullname, sex, birthday, address, phone, email, position) 
+                    VALUES (null, 'admin', '$temp_password', 'demo.jpg', 'Nguyen Van B', 'm', '1997-11-01', '123 Đường ABC XYZ, TP JDK', '(555) 555-555-555', 'thisisadmin@gmail.com', 2)";
+                    $this->conn->query($sql);
+                    $sql = "INSERT INTO  users(id, username, password, avatar, fullname, sex, birthday, address, phone, email, position) 
+                    VALUES (null, 'manager', '$temp_password', 'demo.jpg', 'Nguyen Van C', 'o', '1997-11-01', '123 Đường ABC XYZ, TP JDK', '(555) 555-555-555', 'thisismanager@gmail.com', 1)";
                     $this->conn->query($sql);
                 }
             } else {
@@ -49,7 +57,7 @@
                 //echo "<script type='text/javascript'>alert('$message');</script>";
             }
         }
-
+        /*
         // Tạo Table for Admins
         public function createTableAdmins() {
             $sql = "USE $this->dbname";
@@ -90,7 +98,7 @@
                 //echo "<script type='text/javascript'>alert('$message');</script>";
             }
         }
-
+        */
         public function connect() {
             //$this->conn = new mysqli($this->hostname, $this->username, $this->pass, $this->dbname);
             $this->conn = new mysqli($this->hostname, $this->username, $this->pass);
@@ -110,7 +118,7 @@
                 }
                 //echo "<script type='text/javascript'>alert('$message');</script>";
                 $this->createTableUsers();
-                $this->createTableAdmins();
+                //$this->createTableAdmins();
             }
             return $this->conn;
         }

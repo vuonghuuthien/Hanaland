@@ -17,7 +17,13 @@
     if (isset($_GET['controller'])) {
         $_SESSION['page'] = $_GET['controller'];
     }
-
+    // user 
+    if (!isset($_SESSION['user'])) {
+        $_SESSION['user'] = array("username"=>"", "password"=>"", "avatar"=>"", 
+                            "fullname"=>"", "sex"=>"", "birthday"=>"", 
+                            "address"=>"", "phone"=>"", "email"=>"");
+    }
+    //
     if( isset( $_SESSION['counter'] ) ) { 
         $_SESSION['counter'] += 1; 
     } else { 
@@ -153,6 +159,12 @@
                 echo '<script src="./Public/js/home/script.js"></script>';
                 break;
             }
+        }
+    ?>
+    <?php
+        foreach($_SESSION['user'] as $x => $x_value) {
+            echo "Key=" . $x . ", Value=" . $x_value;
+            echo "<br>";
         }
     ?>
     <script src="./Public/js/script.js"></script>

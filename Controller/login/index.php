@@ -17,29 +17,20 @@
                 $username = $_POST['username'];
                 $password = md5($_POST['password']);
                 // Lấy dữ liệu từ Model : file DBConfig.php
-                $tempResult = $db->SearchPrototype('admins', 'username', $username);
+                $tempResult = $db->SearchPrototype('users', 'username', $username);
                 if (is_array($tempResult)) {
                     if ($tempResult[0]['active'] == 1) {
                         if ($tempResult[0]['password'] === $password) {
-                            if ($tempResult[0]['manager'] == 1) {
+                            if ($tempResult[0]['position'] == 1) {
                                 $m_a_u = 1;
-                            } else {
+                            } else if ($tempResult[0]['position'] == 2) {
                                 $m_a_u = 2;
+                            } else {
+                                $m_a_u = 3;
                             }
                         }
                     } else {
                         $m_a_u = -1;
-                    }
-                } else {
-                    $tempResult = $db->SearchPrototype('users', 'username', $username);
-                    if (is_array($tempResult)) {
-                        if ($tempResult[0]['active'] == 1) {
-                            if ($tempResult[0]['password'] === $password) {
-                                $m_a_u = 3;
-                            }
-                        } else {
-                            $m_a_u = -1;
-                        }
                     }
                 }
             }
