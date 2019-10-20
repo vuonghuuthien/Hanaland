@@ -1,6 +1,7 @@
 <?php
     // Start the session
     session_start();
+
     if (!isset($_SESSION['lang'])) {
         $_SESSION['lang'] = 'vn';
     }
@@ -19,9 +20,7 @@
     }
     // user 
     if (!isset($_SESSION['user'])) {
-        $_SESSION['user'] = array("username"=>"", "password"=>"", "avatar"=>"", 
-                            "fullname"=>"", "sex"=>"", "birthday"=>"", 
-                            "address"=>"", "phone"=>"", "email"=>"");
+        $_SESSION['user'] = array();
     }
     //
     if( isset( $_SESSION['counter'] ) ) { 
@@ -103,12 +102,19 @@
         <div class="menuHamburger">
             <div class="icon_menuHamburger"></div>
         </div>
-        <div class="account">
-            <div class="avatar_account"></div>
-            <div class="name_account">Thomas K.Wilson</div>
-            <br>
-            <div class="logout_account">LOGIN</div>
-        </div>
+        <table class="account <?php if (!isset($_SESSION['user']['username'])) { echo 'none'; } ?>">
+            <tr>
+                <td class="name_account"><?php echo $_SESSION['user']['username']; ?></td>
+                <td rowspan="2" class="avatar_account" style="background: url('./Public/img/users/<?php echo $_SESSION['user']['avatar']; ?>'); 
+                                        background-size: cover;
+                                        background-repeat: no-repeat;
+                                        background-position: 50% 50%;" >
+                </td>
+            </tr>
+            <tr>
+                <td class="logout_account">LOG OUT</td>
+            </tr>
+        </table>
         <?php
             $href = $_SESSION['href'] . '&controller=' . $_SESSION['page']; 
         ?>
@@ -161,16 +167,10 @@
             }
         }
     ?>
-    <?php
-        foreach($_SESSION['user'] as $x => $x_value) {
-            echo "Key=" . $x . ", Value=" . $x_value;
-            echo "<br>";
-        }
-    ?>
     <script src="./Public/js/script.js"></script>
 </body>
 </html>
 
 <?php
-    session_destroy();
+    //session_destroy();
 ?>

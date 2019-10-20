@@ -148,29 +148,37 @@ html, body {
 }
 .account {
     position: fixed;
-    margin-top: 0.16rem;
     right: 7vw;
+    text-align: right;
+    border-collapse: separate;
+    border-spacing: 0.3rem 0;
+    margin-top: 0.07rem;
 }
-.account div { float: right; cursor: pointer; }
+.account td {  cursor: pointer;     vertical-align: middle; }
 .avatar_account {
     height: 1.29rem;
     width: 1.29rem;
-    background: #eee;
 }
 .avatar_account:hover {
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 }
-.name_account {
-    margin-top: -0.12rem;
-    margin-right: 0.3rem;
+.name_account,
+.logout_account {
     color: #eee;
+}
+.name_account {
     font-size: 0.7rem;
+    color: #9fe62c;
 }
 .logout_account {
-    margin-top: -0.52rem;
-    margin-right: 0.3rem;
-    color: #eee;
-    font-size: 0.7rem;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: 0.57rem;
+    color: #6ebb24;
+}
+.name_account:hover,
+.logout_account:hover {
+    color: #009688; 
 }
 .language {
     cursor: default;

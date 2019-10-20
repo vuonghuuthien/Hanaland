@@ -14,7 +14,27 @@
     </form>
     <?php
         if ($m_a_u == 3) {
-            header('location: index.php?controller=home');
+            header('location: ' . $_SESSION['href'] . '&controller=home');
+            /*
+            function getCurURL()
+            {
+                if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+                    $pageURL = "https://";
+                } else {
+                $pageURL = 'http://';
+                }
+                if (isset($_SERVER["SERVER_PORT"]) && $_SERVER["SERVER_PORT"] != "80") {
+                    $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+                } else {
+                    $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+                }
+                return $pageURL;
+            }
+            //echo getCurURL(); 
+            $url_home = str_replace("login", "home", getCurURL());
+            header($url_home);
+            //echo("<script>location.href = '.$url_home.';</script>");
+            */
         }
     ?>
 </div>

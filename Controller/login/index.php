@@ -27,6 +27,10 @@
                                 $m_a_u = 2;
                             } else {
                                 $m_a_u = 3;
+                                foreach($tempResult[0] as $key => $value) { 
+                                    if (($key != 'id') and ($key != 'active') and ($key != 'position') and !is_int($key))
+                                        $_SESSION['user'][$key] = $value;
+                                }
                             }
                         }
                     } else {

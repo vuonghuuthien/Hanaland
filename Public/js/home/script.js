@@ -114,7 +114,7 @@ $( () => {
         //$(".rectangle_1_moved").css({"top" : windowTop});
     });
 
-    $(".scroll ul a").on('click', function(event) {
+    $(".scroll ul a").on('click', () => {
 
         clickScroll = true;
         // Make sure this.hash has a value before overriding default behavior
@@ -162,5 +162,9 @@ $( () => {
     });
     $(".arrowDownDouble").on("click", () => {
         $('.scroll_2').click(); 
+    });
+
+    $(".logout_account").on('click', () => {
+        $(".account").addClass("none");
     });
 });
