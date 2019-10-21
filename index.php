@@ -1,28 +1,26 @@
 <?php
     // Start the session
     session_start();
-
-    if (!isset($_SESSION['lang'])) {
-        $_SESSION['lang'] = 'vn';
-    }
-    if (!isset($_SESSION['href'])) {
-        $_SESSION['href'] = 'index.php?lang=vn';
-    }
-    if (!isset($_SESSION['page'])) {
-        $_SESSION['page'] = 'home';
+    if (!isset($_SESSION['inforPage'])) {
+        $_SESSION['inforPage'] = array();
+        $_SESSION['inforPage']['lang'] = 'vn';
+        $_SESSION['inforPage']['page'] = 'home';
+        $_SESSION['inforPage']['user'] = '0';
+        $_SESSION['inforPage']['url'] = 'index.php?page=home&lang=vn&user=0';
     }
     if (isset($_GET['lang'])) {
-        $_SESSION['lang'] = $_GET['lang'];
-        $_SESSION['href'] = 'index.php?lang=' . $_GET['lang'];
+        $_SESSION['inforPage']['lang'] = $_GET['lang'];
+        $_SESSION['inforPage']['url'] = 'index.php?page='.$_SESSION['inforPage']['page'].'&lang='.$_GET['lang'].'&user='.$_SESSION['inforPage']['user'];
     }
-    if (isset($_GET['controller'])) {
-        $_SESSION['page'] = $_GET['controller'];
+    if (isset($_GET['page'])) {
+        $_SESSION['inforPage']['page'] = $_GET['page'];
     }
     // user 
     if (!isset($_SESSION['user'])) {
         $_SESSION['user'] = array();
     }
     //
+    /*
     if( isset( $_SESSION['counter'] ) ) { 
         $_SESSION['counter'] += 1; 
     } else { 
@@ -35,6 +33,7 @@
         setcookie("username", "Tran Minh Chinh", time()+3600*24*7, "/","", 0);
         setcookie("password", "25", time()+3600*24*7, "/", "",  0);
     }
+    */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +45,8 @@
     <script type="text/javascript" src="./Public/js/jquery-3.4.1.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./Public/css/home/style.css"> -->
     <?php 
-        if(isset($_GET['controller'])) {
-            $controller = $_GET['controller'];
+        if(isset($_GET['page'])) {
+            $controller = $_GET['page'];
         } else {
             $controller = '';
         }
@@ -89,14 +88,26 @@
     </style>
     <title>Hanaland</title>
 </head>
-<body class="<?= $_SESSION['lang'] ?>">
-    <div class="navigationBar <?php if($_SESSION['page']!='home') { echo ('navigationBarShort'); }?>">
+<body class="<?= $_SESSION['inforPage']['lang'] ?>">
+    <div class="navigationBar <?php if($_SESSION['inforPage']['page']!='home') { echo ('navigationBarShort'); }?>">
         <div class="logo"></div>
+        <?php
+        /*
+            $url = $_SESSION['inforPage']['url']; 
+            var_dump ($_SESSION['inforPage']['page']);
+            var_dump ($url);
+            $url = str_replace('login', 'home', 'index.php?page=home&lang=vn&user=0');
+            var_dump ($url);
+            */
+        ?>
         <div class="menuNavigation">
             <ul>
-                <li><a href="<?php echo($_SESSION['href'] . '&controller=login');?>" class="login <?php if($_SESSION['page']=='login') { echo ('active disabled'); } ?>">Đăng Nhập</a></li>
-                <li><a href="<?php echo($_SESSION['href'] . '&controller=home');?>" class="home <?php if($_SESSION['page']=='home') { echo ('active disabled'); } ?>">Trang Chủ</a></li>
-                <li><a href="<?php echo($_SESSION['href'] . '&controller=signup');?>" class="signup <?php if($_SESSION['page']=='signup') { echo ('active disabled'); } ?>">Đăng Ký</a></li>
+                <li><a href="<?php echo (str_replace('login', $_SESSION['inforPage']['page'], $url)); 
+                                ?>" class="login <?php if($_SESSION['inforPage']['page']=='login') { echo ('active disabled'); } ?>">Đăng Nhập</a></li>
+                <li><a href="<?php echo (str_replace('home', $_SESSION['inforPage']['page'], $url)); 
+                                ?>" class="home <?php if($_SESSION['inforPage']['page']=='home') { echo ('active disabled'); } ?>">Trang Chủ</a></li>
+                <li><a href="<?php echo (str_replace('signup', $_SESSION['inforPage']['page'], $url)); 
+                                ?>" class="signup <?php if($_SESSION['inforPage']['page']=='signup') { echo ('active disabled'); } ?>">Đăng Ký</a></li>
             </ul>
         </div>
         <div class="menuHamburger">
@@ -115,13 +126,12 @@
                 <td class="logout_account">LOG OUT</td>
             </tr>
         </table>
-        <?php
-            $href = $_SESSION['href'] . '&controller=' . $_SESSION['page']; 
-        ?>
         <div class="language">
             <ul>
-                <li><a class="en_language <?php if($_SESSION['lang']=='en') { echo ('active disabled'); } ?>" href="<?= str_replace("vn", "en", $href); ?>">EN</a></li>
-                <li><a class="vn_language <?php if($_SESSION['lang']=='vn') { echo ('active disabled'); } ?>" href="<?= str_replace("en", "vn", $href); ?>">VN</a></li>
+                <li><a class="en_language <?php if($_SESSION['inforPage']['lang']=='en') { echo ('active disabled'); } 
+                                            ?>" href="<?= str_replace("vn", "en", $url); ?>">EN</a></li>
+                <li><a class="vn_language <?php if($_SESSION['inforPage']['lang']=='vn') { echo ('active disabled'); } 
+                                            ?>" href="<?= str_replace("en", "vn", $url); ?>">VN</a></li>
             </ul>
             <ul class="info_language">LANGUAGE</ul>
         </div>
@@ -134,8 +144,8 @@
         $db = new Database;
         $db->connect();
         // GET variable controller in URL
-        if(isset($_GET['controller'])) {
-            $controller = $_GET['controller'];
+        if(isset($_GET['page'])) {
+            $controller = $_GET['page'];
         } else {
             $controller = '';
         }
@@ -172,5 +182,5 @@
 </html>
 
 <?php
-    //session_destroy();
+    session_destroy();
 ?>
