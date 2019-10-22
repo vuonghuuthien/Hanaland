@@ -14,7 +14,7 @@
             $m_a_u = 0; // -1 delete // 1 manager // 2 admin // 3 user
             $image = '';
             if (isset($_POST['login'])) {
-                $username = $_POST['username'];
+                $username = trim($_POST['username']);
                 $password = md5($_POST['password']);
                 // Lấy dữ liệu từ Model : file DBConfig.php
                 $tempResult = $db->SearchPrototype('users', 'username', $username);

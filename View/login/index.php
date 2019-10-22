@@ -14,7 +14,18 @@
     </form>
     <?php
         if ($m_a_u == 3) {
-            header('location: ' . $_SESSION['href'] . '&controller=home');
+
+            $url_home = str_replace('login', 'home', $_SESSION['inforPage']['url']);
+            //
+            if (headers_sent()) {
+                echo ('<script type="text/javascript">
+                    location.href = "'.$url_home.'";
+                </script>');
+            }
+            else{
+                header('Location: '.str_replace('login', 'home', $_SESSION['inforPage']['url']));
+            }
+            //header('location: ' . str_replace('login', 'home', $_SESSION['inforPage']['url']));
             /*
             function getCurURL()
             {

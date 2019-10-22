@@ -91,22 +91,13 @@
 <body class="<?= $_SESSION['inforPage']['lang'] ?>">
     <div class="navigationBar <?php if($_SESSION['inforPage']['page']!='home') { echo ('navigationBarShort'); }?>">
         <div class="logo"></div>
-        <?php
-        /*
-            $url = $_SESSION['inforPage']['url']; 
-            var_dump ($_SESSION['inforPage']['page']);
-            var_dump ($url);
-            $url = str_replace('login', 'home', 'index.php?page=home&lang=vn&user=0');
-            var_dump ($url);
-            */
-        ?>
         <div class="menuNavigation">
             <ul>
-                <li><a href="<?php echo (str_replace('login', $_SESSION['inforPage']['page'], $url)); 
+                <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'login', $_SESSION['inforPage']['url'])); 
                                 ?>" class="login <?php if($_SESSION['inforPage']['page']=='login') { echo ('active disabled'); } ?>">Đăng Nhập</a></li>
-                <li><a href="<?php echo (str_replace('home', $_SESSION['inforPage']['page'], $url)); 
+                <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'home', $_SESSION['inforPage']['url'])); 
                                 ?>" class="home <?php if($_SESSION['inforPage']['page']=='home') { echo ('active disabled'); } ?>">Trang Chủ</a></li>
-                <li><a href="<?php echo (str_replace('signup', $_SESSION['inforPage']['page'], $url)); 
+                <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'signup', $_SESSION['inforPage']['url'])); 
                                 ?>" class="signup <?php if($_SESSION['inforPage']['page']=='signup') { echo ('active disabled'); } ?>">Đăng Ký</a></li>
             </ul>
         </div>
@@ -129,14 +120,14 @@
         <div class="language">
             <ul>
                 <li><a class="en_language <?php if($_SESSION['inforPage']['lang']=='en') { echo ('active disabled'); } 
-                                            ?>" href="<?= str_replace("vn", "en", $url); ?>">EN</a></li>
+                                            ?>" href="<?= str_replace("vn", "en", $_SESSION['inforPage']['url']); ?>">EN</a></li>
                 <li><a class="vn_language <?php if($_SESSION['inforPage']['lang']=='vn') { echo ('active disabled'); } 
-                                            ?>" href="<?= str_replace("en", "vn", $url); ?>">VN</a></li>
+                                            ?>" href="<?= str_replace("en", "vn", $_SESSION['inforPage']['url']); ?>">VN</a></li>
             </ul>
             <ul class="info_language">LANGUAGE</ul>
         </div>
     </div>
-    <?php //echo ( $msg ); ?>
+    <?php //var_dump($_SESSION['user'] ); ?> 
     <div class="navigationBar_temp"></div>
     <?php
         // Kết nối đối Database
@@ -182,5 +173,5 @@
 </html>
 
 <?php
-    session_destroy();
+    //session_destroy();
 ?>

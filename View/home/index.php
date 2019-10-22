@@ -1,4 +1,3 @@
-
 <div class="scroll">
     <ul><a id="scroll_1" class="scroll_1 active">Lời Chào&nbsp;<span>|</span></a></ul>
     <ul><a id="scroll_2" class="scroll_2" href="#bestProject">Dự Án Tốt Nhất&nbsp;<span>|</span></a></ul>

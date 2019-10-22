@@ -114,7 +114,7 @@ $( () => {
         //$(".rectangle_1_moved").css({"top" : windowTop});
     });
 
-    $(".scroll ul a").on('click', () => {
+    $(".scroll ul a").on('click', function(event) {
 
         clickScroll = true;
         // Make sure this.hash has a value before overriding default behavior
