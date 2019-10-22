@@ -16,6 +16,7 @@
         if ($m_a_u == 3) {
 
             $url_home = str_replace('login', 'home', $_SESSION['inforPage']['url']);
+            $url_home = str_replace('user=0', 'user=1', $url_home);
             //
             if (headers_sent()) {
                 echo ('<script type="text/javascript">
@@ -23,7 +24,7 @@
                 </script>');
             }
             else{
-                header('Location: '.str_replace('login', 'home', $_SESSION['inforPage']['url']));
+                header('Location: '.$url_home);
             }
             //header('location: ' . str_replace('login', 'home', $_SESSION['inforPage']['url']));
             /*

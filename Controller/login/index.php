@@ -21,6 +21,7 @@
                 if (is_array($tempResult)) {
                     if ($tempResult[0]['active'] == 1) {
                         if ($tempResult[0]['password'] === $password) {
+                            $_SESSION['inforPage']['user'] = '1';
                             if ($tempResult[0]['position'] == 1) {
                                 $m_a_u = 1;
                             } else if ($tempResult[0]['position'] == 2) {

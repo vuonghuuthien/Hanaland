@@ -166,5 +166,8 @@ $( () => {
 
     $(".logout_account").on('click', () => {
         $(".account").addClass("none");
+        var href = window.location.href;
+        href = href.replace("user=1", "user=0");
+        location.href = href;
     });
 });

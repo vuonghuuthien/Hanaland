@@ -8,15 +8,20 @@
         $_SESSION['inforPage']['user'] = '0';
         $_SESSION['inforPage']['url'] = 'index.php?page=home&lang=vn&user=0';
     }
-    if (isset($_GET['lang'])) {
+    if (isset($_GET['lang']) and ($_GET['lang'] != $_SESSION['inforPage']['lang'])) {
         $_SESSION['inforPage']['lang'] = $_GET['lang'];
         $_SESSION['inforPage']['url'] = 'index.php?page='.$_SESSION['inforPage']['page'].'&lang='.$_GET['lang'].'&user='.$_SESSION['inforPage']['user'];
     }
-    if (isset($_GET['page'])) {
+    if (isset($_GET['page']) and ($_GET['page'] != $_SESSION['inforPage']['page'])) {
         $_SESSION['inforPage']['page'] = $_GET['page'];
+        $_SESSION['inforPage']['url'] = 'index.php?page='.$_GET['page'].'&lang='.$_SESSION['inforPage']['lang'].'&user='.$_SESSION['inforPage']['user'];
+    }
+    if (isset($_GET['user']) and ($_GET['user'] != $_SESSION['inforPage']['user'])) {
+        $_SESSION['inforPage']['user'] = $_GET['user'];
+        $_SESSION['inforPage']['url'] = 'index.php?page='.$_SESSION['inforPage']['page'].'&lang='.$_SESSION['inforPage']['lang'].'&user='.$_GET['user'];
     }
     // user 
-    if (!isset($_SESSION['user'])) {
+    if (!isset($_SESSION['user']) or (isset($_GET['user']) and $_GET['user'] == 0)) {
         $_SESSION['user'] = array();
     }
     //
