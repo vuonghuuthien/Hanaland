@@ -6,12 +6,14 @@ $( () => {
     $(".vn .home").html("TRANG CHỦ");
     $(".vn .login").html("ĐĂNG NHẬP");
     $(".vn .signup").html("ĐĂNG KÝ");
+    $(".vn .logout_account").html("ĐĂNG XUẤT");
 
     $(".en .info_language").html("NGÔN NGỮ");
     // menu
     $(".en .home").html("HOME");
     $(".en .login").html("LOG IN");
     $(".en .signup").html("SIGN UP");
+    $(".en .logout_account").html("LOG OUT");
 
     // Sroll To Hide Navigation Bar
     $(window).scroll(() => {

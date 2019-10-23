@@ -23,6 +23,7 @@
     // user 
     if (!isset($_SESSION['user']) or (isset($_GET['user']) and $_GET['user'] == 0)) {
         $_SESSION['user'] = array();
+        $_SESSION['inforPage']['user'] = '0';
     }
     //
     /*
@@ -99,17 +100,21 @@
         <div class="menuNavigation">
             <ul>
                 <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'login', $_SESSION['inforPage']['url'])); 
-                                ?>" class="login <?php if($_SESSION['inforPage']['page']=='login') { echo ('active disabled'); } ?>">Đăng Nhập</a></li>
+                                ?>" class="login <?php if($_SESSION['inforPage']['page']=='login') { echo ('active disabled'); } 
+                                                        if($_SESSION['inforPage']['user']=='1') { echo ('disabled'); } 
+                                                    ?>">Đăng Nhập</a></li>
                 <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'home', $_SESSION['inforPage']['url'])); 
                                 ?>" class="home <?php if($_SESSION['inforPage']['page']=='home') { echo ('active disabled'); } ?>">Trang Chủ</a></li>
                 <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'signup', $_SESSION['inforPage']['url'])); 
-                                ?>" class="signup <?php if($_SESSION['inforPage']['page']=='signup') { echo ('active disabled'); } ?>">Đăng Ký</a></li>
+                                ?>" class="signup <?php if($_SESSION['inforPage']['page']=='signup') { echo ('active disabled'); } 
+                                                        if($_SESSION['inforPage']['user']=='1') { echo ('disabled'); } 
+                                                    ?>">Đăng Ký</a></li>
             </ul>
         </div>
         <div class="menuHamburger">
             <div class="icon_menuHamburger"></div>
         </div>
-        <table class="account <?php if (!isset($_SESSION['user']['username'])) { echo 'none'; } ?>">
+        <table class="account <?php if ($_SESSION['inforPage']['user'] == '0') { echo ('none'); } ?>">
             <tr>
                 <td class="name_account"><?php echo $_SESSION['user']['username']; ?></td>
                 <td rowspan="2" class="avatar_account" style="background: url('./Public/img/users/<?php echo $_SESSION['user']['avatar']; ?>'); 

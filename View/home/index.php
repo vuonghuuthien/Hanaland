@@ -21,10 +21,69 @@
 </div>
 
 <div class="bestProject" id="bestProject">
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
 
+    <!-- Full-width images with number and caption text -->
+    <!-- <div class="mySlides fade" style="background-image: url('./Public/img/contents/001/1.png');
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+        <div class="numbertext">1 / 3</div>
+        <div class="text">Caption Text ONE</div>
+    </div> -->
+    <div class="mySlides mySlides_left moveRight_mySlides_left" style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+    </div>
+
+    <div class="mySlides mySlides_1 moveRight_mySlides_1" style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+        <div class="numbertext">1 / 3</div>
+        <div class="text">Caption Text ONE</div>
+    </div>
+
+    <div class="mySlides mySlides_2 moveRight_mySlides_2" style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+        <div class="numbertext">2 / 3</div>
+        <div class="text">Caption Text TWO</div>
+    </div>
+
+    <div class="mySlides mySlides_3 moveRight_mySlides_3" style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+        <div class="numbertext">3 / 3</div>
+        <div class="text">Caption Text THREE</div>
+    </div>
+
+    <div class="mySlides mySlides_right moveRight_mySlides_right" style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</div>
+<div class="allProject" id="allProject">
 
 </div>
-<div class="allProject" id="allProject"></div>
 <div class="contact" id="contact"></div>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <br>

@@ -168,6 +168,9 @@ html, body {
 }
 .name_account {
     font-size: 0.7rem;
+    color: #6ebb24;
+}
+.navigationBarShort .name_account {
     color: #9fe62c;
 }
 .logout_account {
@@ -178,7 +181,8 @@ html, body {
 }
 .name_account:hover,
 .logout_account:hover {
-    color: #009688; 
+    color: #6ebb24; 
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
 }
 .language {
     cursor: default;
