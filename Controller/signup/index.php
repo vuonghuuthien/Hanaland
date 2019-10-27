@@ -11,35 +11,41 @@
     // Require file in View
     switch($action) {
         default: {
-            $m_a_u = 0; // -1 delete // 1 manager // 2 admin // 3 user
-            if (isset($_POST['login'])) {
-                $username = $_POST['username'];
-                $password = md5($_POST['password']);
-                // Lấy dữ liệu từ Model : file DBConfig.php
-                $tempResult = $db->SearchPrototype('admins', 'username', $username);
-                if (is_array($tempResult)) {
-                    if ($tempResult[0]['active'] == 1) {
-                        if ($tempResult[0]['password'] === $password) {
-                            if ($tempResult[0]['manager'] == 1) {
-                                $m_a_u = 1;
-                            } else {
-                                $m_a_u = 2;
-                            }
-                        }
-                    } else {
-                        $m_a_u = -1;
-                    }
-                } else {
+            $signup = 0;
+            $image = '';
+            if (isset($_POST['signup'])) {
+                if ($_POST['password'] == $_POST['rePassword']) {
+                    $username = trim($_POST['username']);
+                    $password = md5($_POST['password']);
+                    $avatar = $_POST['avatar'];
+                    $fullname = $_POST['fullname'];
+                    $sex = $_POST['sex'];
+                    $birthday = $_POST['birthday'];
+                    $address = $_POST['address'];
+                    $phone = $_POST['phone'];
+                    $email = $_POST['email'];
+
                     $tempResult = $db->SearchPrototype('users', 'username', $username);
                     if (is_array($tempResult)) {
-                        if ($tempResult[0]['active'] == 1) {
-                            if ($tempResult[0]['password'] === $password) {
-                                $m_a_u = 3;
-                            }
+                        $_SESSION['error']['signup'] = 'username is exist';
+                    } else {
+                        if($db->InsertData($username, $password, $avatar, $fullname, $sex, $birthday, $address, $phone, $email)) {
+                            $signup = 1;
+                            $_SESSION['user']['username'] = $username;
+                            $_SESSION['user']['password'] = $password;
+                            $_SESSION['user']['avatar'] = $avatar;
+                            $_SESSION['user']['fullname'] = $fullname;
+                            $_SESSION['user']['sex'] = $sex;
+                            $_SESSION['user']['birthday'] = $birthday;
+                            $_SESSION['user']['address'] = $address;
+                            $_SESSION['user']['phone'] = $phone;
+                            $_SESSION['user']['email'] = $email;
                         } else {
-                            $m_a_u = -1;
+                            $_SESSION['error']['signup'] = 'don t insert data user';
                         }
                     }
+                } else {
+                    $_SESSION['error']['signup'] = 'password and repassword isnt sample';
                 }
             }
             require_once('View/signup/index.php');

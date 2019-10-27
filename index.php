@@ -25,6 +25,12 @@
         $_SESSION['user'] = array();
         $_SESSION['inforPage']['user'] = '0';
     }
+    // error
+    if (!isset($_SESSION['error'])) {
+        $_SESSION['error'] = array();
+        $_SESSION['error']['login'] = '0';
+        $_SESSION['error']['signup'] = '0';
+    }
     //
     /*
     if( isset( $_SESSION['counter'] ) ) { 

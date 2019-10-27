@@ -178,10 +178,48 @@ $( () => {
         location.href = href;
     });
 
+    $(".prevSlideshow").on('click', () => {
+        document.querySelector(".mySlides_1").className = "mySlides mySlides_1";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_1").className = "mySlides mySlides_1 moveLeft_mySlides_1";
+        });
+        document.querySelector(".mySlides_2").className = "mySlides mySlides_2";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_2").className = "mySlides mySlides_2 moveLeft_mySlides_2";
+        });
+        document.querySelector(".mySlides_3").className = "mySlides mySlides_3";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_3").className = "mySlides mySlides_3 moveLeft_mySlides_3";
+        });
+        document.querySelector(".mySlides_right").className = "mySlides mySlides_right";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_right").className = "mySlides mySlides_right moveLeft_mySlides_right";
+        });
+    });
+    $(".nextSlideshow").on('click', () => {
+        document.querySelector(".mySlides_left").className = "mySlides mySlides_left";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_left").className = "mySlides mySlides_left moveRight_mySlides_left";
+        });
+        document.querySelector(".mySlides_1").className = "mySlides mySlides_1";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_1").className = "mySlides mySlides_1 moveRight_mySlides_1";
+        });
+        document.querySelector(".mySlides_2").className = "mySlides mySlides_2";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_2").className = "mySlides mySlides_2 moveRight_mySlides_2";
+        });
+        document.querySelector(".mySlides_3").className = "mySlides mySlides_3";
+        window.requestAnimationFrame(function(time) {
+            document.querySelector(".mySlides_3").className = "mySlides mySlides_3 moveRight_mySlides_3";
+        });
+    });
+
     // slideshow
 });
 
 var slideIndex = 2;
+/*
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -193,7 +231,7 @@ function plusSlides(n) {
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
-/*
+
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
@@ -210,9 +248,49 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 */
-function showSlides(n) {
-    var i;
+function plusSlides(n) {
+    if (n>0) {
+        $(".mySlides_left").addClass("moveRight_mySlides_left");
+        $(".mySlides_1").addClass("moveRight_mySlides_1");
+        $(".mySlides_2").addClass("moveRight_mySlides_2");
+        $(".mySlides_3").addClass("moveRight_mySlides_3");
+        $(".mySlides_right").addClass("moveRight_mySlides_right");
+        $(".mySlides_left").removeClass("moveLeft_mySlides_left");
+        $(".mySlides_1").removeClass("moveLeft_mySlides_1");
+        $(".mySlides_2").removeClass("moveLeft_mySlides_2");
+        $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+        $(".mySlides_right").removeClass("moveLeft_mySlides_right");
+    } else {
+        $(".mySlides_left").addClass("moveLeft_mySlides_left");
+        $(".mySlides_1").addClass("moveLeft_mySlides_1");
+        $(".mySlides_2").addClass("moveLeft_mySlides_2");
+        $(".mySlides_3").addClass("moveLeft_mySlides_3");
+        $(".mySlides_right").addClass("moveLeft_mySlides_right");
+        $(".mySlides_left").removeClass("moveRight_mySlides_left");
+        $(".mySlides_1").removeClass("moveRight_mySlides_1");
+        $(".mySlides_2").removeClass("moveRight_mySlides_2");
+        $(".mySlides_3").removeClass("moveRight_mySlides_3");
+        $(".mySlides_right").removeClass("moveRight_mySlides_right");
+    }
 }
+
+var swiper = new Swiper('.swiper-container', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows : true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    },
+});
+
 
 
 
