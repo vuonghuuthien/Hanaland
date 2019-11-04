@@ -19,11 +19,28 @@
         <div class="arrowDown segunda"></div>
     </div>
 </div>
+<?php
+    if ($handle = opendir('./Public/info/contents')) {
 
+        while (false !== ($entry = readdir($handle))) {
+    
+            if ($entry != "." && $entry != "..") {
+    
+                echo "$entry\n";
+            }
+        }
+    
+        closedir($handle);
+    }
+?>
 <div class="bestProject" id="bestProject">
     <!-- Slideshow container -->
     <div class="slideshow-container">
-
+        <div class="background_slideshow" style="background: url('./Public/info/contents/1/1.png');
+                                        background-size: cover;
+                                        background-repeat: no-repeat;
+                                        background-position: 50% 50%; ">
+        </div>
         <!-- Full-width images with number and caption text -->
         <!-- <div class="mySlides fade" style="background-image: url('./Public/img/contents/001/1.png');
                                         background-size: cover;
@@ -32,41 +49,64 @@
             <div class="numbertext">1 / 3</div>
             <div class="text">Caption Text ONE</div>
         </div> -->
-        <div class="mySlides mySlides_left " style="background: #fff;
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                        background-position: 50% 50%; ">
-        </div>
-
-        <div class="mySlides mySlides_1 " style="background: #fff;
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                        background-position: 50% 50%; ">
-            <div class="numbertext">1 / 3</div>
-            <div class="text">Caption Text ONE</div>
-        </div>
-
-        <div class="mySlides mySlides_2 " style="background: #fff;
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                        background-position: 50% 50%; ">
-            <div class="numbertext">2 / 3</div>
-            <div class="text">Caption Text TWO</div>
-        </div>
-
-        <div class="mySlides mySlides_3 " style="background: #fff;
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                        background-position: 50% 50%; ">
-            <div class="numbertext">3 / 3</div>
-            <div class="text">Caption Text THREE</div>
-        </div>
-
-        <div class="mySlides mySlides_right " style="background: #fff;
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                        background-position: 50% 50%; ">
-        </div>
+        <?php
+            $countImportant = count($important);
+            if ($countImportant == 1) {
+                echo '<div class="mySlides mySlides_4 " style="background: #fff;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: 50% 50%; ">
+                        <div class="numbertext">1 / 1</div>
+                        <div class="text">Caption Text 1</div> 
+                    </div>';
+            } else if ($countImportant <= 4) {
+                for ($i = 3; $i <= 3 + $countImportant - 1 - 1; $i++) {
+                    echo '<div class="mySlides mySlides_'.$i.' " style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+                            <div class="numbertext">'.($i-2).' / '.$countImportant.'</div>
+                            <div class="text">Caption Text '.($i-2).'</div> 
+                        </div>';
+                }
+                echo '<div class="mySlides mySlides_6 none" style="background: #fff;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: 50% 50%; ">
+                        <div class="numbertext">4 / 4</div>
+                        <div class="text">Caption Text 4</div> 
+                    </div>';
+            } else if ($countImportant == 5) {
+                for ($i = 2; $i <= 2 + $countImportant - 1; $i++) {
+                    echo '<div class="mySlides mySlides_'.$i.' " style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+                            <div class="numbertext">'.($i-1).' / '.$countImportant.'</div>
+                            <div class="text">Caption Text '.($i-1).'</div> 
+                        </div>';
+                }
+            } else {
+                for ($i = 1; $i <= 7; $i++) {
+                    echo '<div class="mySlides mySlides_'.$i.' " style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+                            <div class="numbertext">'.$i.' / '.$countImportant.'</div>
+                            <div class="text">Caption Text '.$i.'</div> 
+                        </div>';
+                }
+                for ($i = 8; $i <= $countImportant; $i++) {
+                    echo '<div class="mySlides mySlides_'.$i.' none" style="background: #fff;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%; ">
+                            <div class="numbertext">'.$i.' / '.$countImportant.'</div>
+                            <div class="text">Caption Text '.$i.'</div> 
+                        </div>';
+                }
+            }
+        ?>
 
         <!-- Next and previous buttons -->
         <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

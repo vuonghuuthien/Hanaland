@@ -23,7 +23,7 @@
                             id int(11) NOT NULL AUTO_INCREMENT,
                             username varchar(255) NOT NULL,
                             password varchar(255) NOT NULL,
-                            avatar varchar(255),
+                            avatar varchar(255) default 'demo.jpg',
                             fullname varchar(255),
                             sex char(1),
                             birthday date,
@@ -57,9 +57,9 @@
                 //echo "<script type='text/javascript'>alert('$message');</script>";
             }
         }
-        /*
-        // Tạo Table for Admins
-        public function createTableAdmins() {
+        
+        // Tạo Table for Contents
+        public function createTableContents() {
             $sql = "USE $this->dbname";
             if ($this->conn->query($sql) === TRUE) {
                 $message = "Using the database successfully.";
@@ -67,38 +67,38 @@
                 $message = "The database usage failed: " . $this->conn->error;
             }
             //echo "<script type='text/javascript'>alert('$message');</script>";
-            $sql = "SELECT id FROM admins"; // get id để kiểm tra có tồn tại Table Users hay không
+            $sql = "SELECT id FROM contents"; // get id để kiểm tra có tồn tại Table Users hay không
             if ($this->conn->query($sql) === FALSE) {
                 if(empty($result)) {
-                    $sql = "CREATE TABLE admins (
+                    $sql = "CREATE TABLE contents (
                             id int(11) NOT NULL AUTO_INCREMENT,
-                            username varchar(255) NOT NULL,
-                            password varchar(255) NOT NULL,
-                            avatar varchar(255),
-                            active boolean not null default 1,
-                            manager boolean not null default 0,
+                            title varchar(255) NOT NULL,
+                            intro varchar(255),
+                            important boolean not null default 0,
                             PRIMARY KEY  (id)
                     )";
                     if ($this->conn->query($sql) === TRUE) {
-                        $message = "Table admins created";
+                        $message = "Table contents created";
                     } else {
-                        $message = "Table admins has existed or Query failed: " . $this->conn->error;
+                        $message = "Table contents has existed or Query failed: " . $this->conn->error;
                     }
                     //echo "<script type='text/javascript'>alert('$message');</script>";
-                    // Thêm manager hay admin
-                    $temp_password = md5('12345678');
-                    $sql = "INSERT INTO  admins(id, username, password, avatar, active, manager) VALUES (null, 'manager', '$temp_password', null, '1', '1')";
+                    // Thêm contents
+                    $intro = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium qui";
+                    $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, 'Khu Sample ProVinperl Sasa', '$intro', 1)";
                     $this->conn->query($sql);
-                    $temp_password = md5('12345678');
-                    $sql = "INSERT INTO  admins(id, username, password, avatar, active, manager) VALUES (null, 'admin', '$temp_password', null, '1', '0')";
+                    mkdir('./Public/info/contents/1', 0700);
+                    $intro = "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium qui";
+                    $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, 'Khu Sample ProVinperl Sasa', '$intro', 1)";
                     $this->conn->query($sql);
+                    mkdir('./Public/info/contents/2', 0700);
                 }
             } else {
-                $message = "Check table admins failed: " . $this->conn->error;
+                $message = "Check table contents failed: " . $this->conn->error;
                 //echo "<script type='text/javascript'>alert('$message');</script>";
             }
         }
-        */
+        
         public function connect() {
             //$this->conn = new mysqli($this->hostname, $this->username, $this->pass, $this->dbname);
             $this->conn = new mysqli($this->hostname, $this->username, $this->pass);
@@ -118,6 +118,7 @@
                 }
                 //echo "<script type='text/javascript'>alert('$message');</script>";
                 $this->createTableUsers();
+                $this->createTableContents();
                 //$this->createTableAdmins();
             }
             return $this->conn;
@@ -178,16 +179,26 @@
             }
             return $num;
         }
-        //USERS
         // Phương thức thêm dữ liệu
+            //USERS
         public function InsertData($username, $password, $avatar, $fullname, $sex, $birthday, $address, $phone, $email) {
             $sql = "INSERT INTO  users(id, username, password, avatar, fullname, sex, birthday, address, phone, email) VALUES (null, '$username', '$password', '$avatar', '$fullname', '$sex', '$birthday', '$address', '$phone', '$email')";
             return $this->execute($sql);
         }     
-        //USERS
+            //CONTENTS
+        public function InsertDataContents($title, $intro, $important) {
+            $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, '$title', '$intro', '$important')";
+            return $this->execute($sql);
+        }  
         // Phương thức sửa dữ liệu User
+            //USERS
         public function UpdateData($id, $username, $password, $avatar, $fullname, $sex, $birthday, $address, $phone, $email) {
             $sql = "UPDATE users SET username = '$username', password = '$password', avatar='$avatar', fullname = '$fullname', sex = '$sex', birthday = '$birthday', address = '$address', phone = '$phone', email = '$email'  WHERE id = '$id'";
+            return $this->execute($sql);
+        }
+            //CONTENTS
+        public function UpdateDataContents($title, $intro, $important) {
+            $sql = "UPDATE contents SET title = '$title', intro = '$intro', important='$important'  WHERE id = '$id'";
             return $this->execute($sql);
         }
 

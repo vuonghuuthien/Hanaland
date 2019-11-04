@@ -123,7 +123,7 @@
         <table class="account <?php if ($_SESSION['inforPage']['user'] == '0') { echo ('none'); } ?>">
             <tr>
                 <td class="name_account"><?php echo $_SESSION['user']['username']; ?></td>
-                <td rowspan="2" class="avatar_account" style="background: url('./Public/img/users/<?php echo $_SESSION['user']['avatar']; ?>'); 
+                <td rowspan="2" class="avatar_account" style="background: url('./Public/info/users/<?php echo $_SESSION['user']['avatar']; ?>'); 
                                         background-size: cover;
                                         background-repeat: no-repeat;
                                         background-position: 50% 50%;" >
@@ -163,6 +163,11 @@
                 require_once('Controller/users/index.php');
                 break;
             }
+            case 'user': {
+                //require_once('View/thanhvien/add_user.php');
+                require_once('Controller/user/index.php');
+                break;
+            }
             case 'login': {
                 require_once('Controller/login/index.php');
                 echo '<script src="./Public/js/login/script.js"></script>';
@@ -184,7 +189,7 @@
             }
         }
     ?>
-    <script src="./Public/js/script.js"></script>
+    <script  type="text/javascript" src="./Public/js/script.js"></script>
 </body>
 </html>
 

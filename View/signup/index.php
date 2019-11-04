@@ -3,7 +3,7 @@
     
     <form class="form" action="" method="POST">
         <span class="fa fa-user"></span>
-        <input type="text" placeholder="User Name" id="username" name="username" required>
+        <input type="text" placeholder="User Name" id="username" name="username" required maxlength="40" >
         <span class="fa fa-unlock-alt"></span>
         <input type="password" placeholder="Password" id="password" name="password" required>
         <span class="fa fa-unlock"></span>

@@ -179,40 +179,182 @@ $( () => {
     });
 
     $(".prevSlideshow").on('click', () => {
-        document.querySelector(".mySlides_1").className = "mySlides mySlides_1";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_1").className = "mySlides mySlides_1 moveLeft_mySlides_1";
-        });
-        document.querySelector(".mySlides_2").className = "mySlides mySlides_2";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_2").className = "mySlides mySlides_2 moveLeft_mySlides_2";
-        });
-        document.querySelector(".mySlides_3").className = "mySlides mySlides_3";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_3").className = "mySlides mySlides_3 moveLeft_mySlides_3";
-        });
-        document.querySelector(".mySlides_right").className = "mySlides mySlides_right";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_right").className = "mySlides mySlides_right moveLeft_mySlides_right";
-        });
+        var count_mySlides = $(".mySlides").length;
+        if (count_mySlides == 2) {
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3_e2_2s");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_3").addClass("moveLeft_mySlides_3_e2_2s");
+                $(".mySlides_4").addClass("moveLeft_mySlides_4");
+            });
+        }
+        if (count_mySlides == 3 || count_mySlides == 4) { 
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3_e2_3s");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_3").addClass("moveLeft_mySlides_3_e2_3s");
+                $(".mySlides_4").addClass("moveLeft_mySlides_4");
+                $(".mySlides_5").addClass("moveLeft_mySlides_5");
+            });
+        }
+        if (count_mySlides == 5) {
+            $(".mySlides_2").removeClass("moveLeft_mySlides_2_e3_5s");
+            $(".mySlides_2").removeClass("moveRight_mySlides_2");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5");
+            $(".mySlides_6").removeClass("moveLeft_mySlides_6");
+            $(".mySlides_6").removeClass("moveRight_mySlides_6");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_2").addClass("moveLeft_mySlides_2_e3_5s");
+                $(".mySlides_3").addClass("moveLeft_mySlides_3");
+                $(".mySlides_4").addClass("moveLeft_mySlides_4");
+                $(".mySlides_5").addClass("moveLeft_mySlides_5");
+                $(".mySlides_6").addClass("moveLeft_mySlides_6");
+            });
+        }
+        if (count_mySlides == 6) {
+            $(".mySlides_1").removeClass("moveLeft_mySlides_1_e4_6s");
+            $(".mySlides_1").removeClass("moveRight_mySlides_1");
+            $(".mySlides_2").removeClass("moveLeft_mySlides_2");
+            $(".mySlides_2").removeClass("moveRight_mySlides_2");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5");
+            $(".mySlides_6").removeClass("moveLeft_mySlides_6");
+            $(".mySlides_6").removeClass("moveRight_mySlides_6");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_1").addClass("moveLeft_mySlides_1_e4_6s");
+                $(".mySlides_2").addClass("moveLeft_mySlides_2");
+                $(".mySlides_3").addClass("moveLeft_mySlides_3");
+                $(".mySlides_4").addClass("moveLeft_mySlides_4");
+                $(".mySlides_5").addClass("moveLeft_mySlides_5");
+                $(".mySlides_6").addClass("moveLeft_mySlides_6");
+            });
+        }
+        if (count_mySlides > 6) {
+            $(".mySlides_2").removeClass("moveLeft_mySlides_2");
+            $(".mySlides_2").removeClass("moveRight_mySlides_2");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5");
+            $(".mySlides_6").removeClass("moveLeft_mySlides_6");
+            $(".mySlides_6").removeClass("moveRight_mySlides_6");
+            $(".mySlides_7").removeClass("moveLeft_mySlides_7");
+            $(".mySlides_7").removeClass("moveRight_mySlides_7");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_2").addClass("moveLeft_mySlides_2");
+                $(".mySlides_3").addClass("moveLeft_mySlides_3");
+                $(".mySlides_4").addClass("moveLeft_mySlides_4");
+                $(".mySlides_5").addClass("moveLeft_mySlides_5");
+                $(".mySlides_6").addClass("moveLeft_mySlides_6");
+                $(".mySlides_7").addClass("moveLeft_mySlides_7");
+            });
+        }
     });
     $(".nextSlideshow").on('click', () => {
-        document.querySelector(".mySlides_left").className = "mySlides mySlides_left";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_left").className = "mySlides mySlides_left moveRight_mySlides_left";
-        });
-        document.querySelector(".mySlides_1").className = "mySlides mySlides_1";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_1").className = "mySlides mySlides_1 moveRight_mySlides_1";
-        });
-        document.querySelector(".mySlides_2").className = "mySlides mySlides_2";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_2").className = "mySlides mySlides_2 moveRight_mySlides_2";
-        });
-        document.querySelector(".mySlides_3").className = "mySlides mySlides_3";
-        window.requestAnimationFrame(function(time) {
-            document.querySelector(".mySlides_3").className = "mySlides mySlides_3 moveRight_mySlides_3";
-        });
+        var count_mySlides = $(".mySlides").length;
+        if (count_mySlides == 2) {
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_3").addClass("moveRight_mySlides_3");
+                $(".mySlides_4").addClass("moveRight_mySlides_4"); 
+            });
+        }
+        if (count_mySlides == 3 || count_mySlides == 4) { 
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5_e2_3s");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_3").addClass("moveRight_mySlides_3");
+                $(".mySlides_4").addClass("moveRight_mySlides_4");
+                $(".mySlides_5").addClass("moveRight_mySlides_5_e2_3s");
+            });
+        }
+        if (count_mySlides == 5) {
+            $(".mySlides_2").removeClass("moveRight_mySlides_2");
+            $(".mySlides_2").removeClass("moveLeft_mySlides_2");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            $(".mySlides_6").removeClass("moveRight_mySlides_6_e3_5s");
+            $(".mySlides_6").removeClass("moveLeft_mySlides_6");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_2").addClass("moveRight_mySlides_2");
+                $(".mySlides_3").addClass("moveRight_mySlides_3");
+                $(".mySlides_4").addClass("moveRight_mySlides_4");
+                $(".mySlides_5").addClass("moveRight_mySlides_5");
+                $(".mySlides_6").addClass("moveRight_mySlides_6_e3_5s");
+            });
+        }
+        if (count_mySlides == 6) {
+            $(".mySlides_1").removeClass("moveRight_mySlides_1");
+            $(".mySlides_1").removeClass("moveLeft_mySlides_1");
+            $(".mySlides_2").removeClass("moveRight_mySlides_2");
+            $(".mySlides_2").removeClass("moveLeft_mySlides_2");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            $(".mySlides_6").removeClass("moveRight_mySlides_6_e4_6s");
+            $(".mySlides_6").removeClass("moveLeft_mySlides_6");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_1").addClass("moveRight_mySlides_1");
+                $(".mySlides_2").addClass("moveRight_mySlides_2");
+                $(".mySlides_3").addClass("moveRight_mySlides_3");
+                $(".mySlides_4").addClass("moveRight_mySlides_4");
+                $(".mySlides_5").addClass("moveRight_mySlides_5");
+                $(".mySlides_6").addClass("moveRight_mySlides_6_e4_6s");
+            });
+        }
+        if (count_mySlides > 6) {
+            $(".mySlides_1").removeClass("moveRight_mySlides_1");
+            $(".mySlides_1").removeClass("moveLeft_mySlides_1");
+            $(".mySlides_2").removeClass("moveRight_mySlides_2");
+            $(".mySlides_2").removeClass("moveLeft_mySlides_2");
+            $(".mySlides_3").removeClass("moveRight_mySlides_3");
+            $(".mySlides_3").removeClass("moveLeft_mySlides_3");
+            $(".mySlides_4").removeClass("moveRight_mySlides_4");
+            $(".mySlides_4").removeClass("moveLeft_mySlides_4");
+            $(".mySlides_5").removeClass("moveRight_mySlides_5");
+            $(".mySlides_5").removeClass("moveLeft_mySlides_5");
+            $(".mySlides_6").removeClass("moveRight_mySlides_6");
+            $(".mySlides_6").removeClass("moveLeft_mySlides_6");
+            window.requestAnimationFrame(function(time) {
+                $(".mySlides_1").addClass("moveRight_mySlides_1");
+                $(".mySlides_2").addClass("moveRight_mySlides_2");
+                $(".mySlides_3").addClass("moveRight_mySlides_3");
+                $(".mySlides_4").addClass("moveRight_mySlides_4");
+                $(".mySlides_5").addClass("moveRight_mySlides_5");
+                $(".mySlides_6").addClass("moveRight_mySlides_6");
+            });
+        }
     });
 
     // slideshow
@@ -248,48 +390,9 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 */
-function plusSlides(n) {
-    if (n>0) {
-        $(".mySlides_left").addClass("moveRight_mySlides_left");
-        $(".mySlides_1").addClass("moveRight_mySlides_1");
-        $(".mySlides_2").addClass("moveRight_mySlides_2");
-        $(".mySlides_3").addClass("moveRight_mySlides_3");
-        $(".mySlides_right").addClass("moveRight_mySlides_right");
-        $(".mySlides_left").removeClass("moveLeft_mySlides_left");
-        $(".mySlides_1").removeClass("moveLeft_mySlides_1");
-        $(".mySlides_2").removeClass("moveLeft_mySlides_2");
-        $(".mySlides_3").removeClass("moveLeft_mySlides_3");
-        $(".mySlides_right").removeClass("moveLeft_mySlides_right");
-    } else {
-        $(".mySlides_left").addClass("moveLeft_mySlides_left");
-        $(".mySlides_1").addClass("moveLeft_mySlides_1");
-        $(".mySlides_2").addClass("moveLeft_mySlides_2");
-        $(".mySlides_3").addClass("moveLeft_mySlides_3");
-        $(".mySlides_right").addClass("moveLeft_mySlides_right");
-        $(".mySlides_left").removeClass("moveRight_mySlides_left");
-        $(".mySlides_1").removeClass("moveRight_mySlides_1");
-        $(".mySlides_2").removeClass("moveRight_mySlides_2");
-        $(".mySlides_3").removeClass("moveRight_mySlides_3");
-        $(".mySlides_right").removeClass("moveRight_mySlides_right");
-    }
-}
 
-var swiper = new Swiper('.swiper-container', {
-    effect: 'coverflow',
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 'auto',
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows : true,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-    },
-});
+
+
 
 
 
