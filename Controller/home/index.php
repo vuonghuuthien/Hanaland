@@ -14,13 +14,13 @@
             $tblTable = "contents";
             $data = $db->getAllData($tblTable);
             $important = array();
-            $index = 0;
+            $index = 1;
             if (is_array($data)) {
                 for ($i = 0; $i < count($data); $i++) {
                     if($data[$i]['important']==1) {
-                        $important[$index][] = $data[$i]['id'];
-                        $important[$index][] = $data[$i]['title'];
-                        $important[$index][] = $data[$i]['intro'];
+                        $important[$index]['id'] = $data[$i]['id'];
+                        $important[$index]['title'] = $data[$i]['title'];
+                        $important[$index]['intro'] = $data[$i]['intro'];
                         $index++;
                     }
                 }

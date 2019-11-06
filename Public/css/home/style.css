@@ -283,7 +283,11 @@
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
+.mySlides img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 .mySlides_1 {
     z-index: var(--zIndexSlideI);
     height: var(--heightSlideI);
@@ -333,6 +337,63 @@
     transform: rotateY(calc(-1 * var(--rotateSlideII)));
 }
 .mySlides_7 {
+    z-index: var(--zIndexSlideI);
+    height: var(--heightSlideI);
+    width: var(--widthSlideI);
+    margin-left: var(--marginLeftSlide7);
+    opacity: var(--opacitySlideI);
+    transform: rotateY(calc(-1 * var(--rotateSlideI)));
+}
+/* Effect */
+.mySlides1 {
+    z-index: var(--zIndexSlideI);
+    height: var(--heightSlideI);
+    width: var(--widthSlideI);
+    margin-left: var(--marginLeftSlide1);
+    opacity: var(--opacitySlideI);
+    transform: rotateY(var(--rotateSlideI));
+}
+.mySlides2 {
+    z-index: var(--zIndexSlideII);
+    height: var(--heightSlideII);
+    width: var(--widthSlideII);
+    margin-left: var(--marginLeftSlide2);
+    opacity: var(--opacitySlideII);
+    transform: rotateY(var(--rotateSlideII));
+}
+.mySlides3 {
+    z-index: var(--zIndexSlideIII);
+    height: var(--heightSlideIII);
+    width: var(--widthSlideIII);
+    margin-left: var(--marginLeftSlide3);
+    opacity: var(--opacitySlideIII);
+    transform: rotateY(var(--rotateSlideIII));
+}
+.mySlides4 {
+    z-index: var(--zIndexSlideIV);
+    height: var(--heightSlideIV);
+    width: var(--widthSlideIV);
+    margin-left: var(--marginLeftSlide4);
+    opacity: var(--opacitySlideIV);
+    transform: rotateY(var(--rotateSlideIV));
+}
+.mySlides5 {
+    z-index: var(--zIndexSlideIII);
+    height: var(--heightSlideIII);
+    width: var(--widthSlideIII);
+    margin-left: var(--marginLeftSlide5);
+    opacity: var(--opacitySlideIII);
+    transform: rotateY(calc(-1 * var(--rotateSlideIII)));
+}
+.mySlides6 {
+    z-index: var(--zIndexSlideII);
+    height: var(--heightSlideII);
+    width: var(--widthSlideII);
+    margin-left: var(--marginLeftSlide6);
+    opacity: var(--opacitySlideII);
+    transform: rotateY(calc(-1 * var(--rotateSlideII)));
+}
+.mySlides7 {
     z-index: var(--zIndexSlideI);
     height: var(--heightSlideI);
     width: var(--widthSlideI);

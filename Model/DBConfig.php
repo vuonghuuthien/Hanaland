@@ -85,13 +85,26 @@
                     //echo "<script type='text/javascript'>alert('$message');</script>";
                     // Thêm contents
                     $intro = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium qui";
-                    $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, 'Khu Sample ProVinperl Sasa', '$intro', 1)";
+                    $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, 'Khu Sample ProVinperl AAA', '$intro', 1)";
                     $this->conn->query($sql);
-                    mkdir('./Public/info/contents/1', 0700);
+                    $dir = './Public/info/contents/1';
+                    if ( !file_exists( $dir ) && !is_dir( $dir ) ) {
+                        mkdir($dir, 0700);
+                    }
                     $intro = "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium qui";
-                    $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, 'Khu Sample ProVinperl Sasa', '$intro', 1)";
+                    $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, 'Khu Sample ProVinperl BBB', '$intro', 1)";
                     $this->conn->query($sql);
-                    mkdir('./Public/info/contents/2', 0700);
+                    $dir = './Public/info/contents/2';
+                    if ( !file_exists( $dir ) && !is_dir( $dir ) ) {
+                        mkdir($dir, 0700);
+                    }
+                    $intro = "Penatibus et magnis dis parturient Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium qui";
+                    $sql = "INSERT INTO  contents(id, title, intro, important) VALUES (null, 'Khu Sample ProVinperl CCC', '$intro', 1)";
+                    $this->conn->query($sql);
+                    $dir = './Public/info/contents/3';
+                    if ( !file_exists( $dir ) && !is_dir( $dir ) ) {
+                        mkdir($dir, 0700);
+                    }
                 }
             } else {
                 $message = "Check table contents failed: " . $this->conn->error;
