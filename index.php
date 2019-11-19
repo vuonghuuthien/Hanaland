@@ -52,9 +52,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./Public/css/style.css">
     <link rel="stylesheet" type="text/css" href="./Public/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./Public/css/plugin/jquery.flipster.min.css">
+    <link rel="stylesheet" type="text/css" href="./Public/css/style.css">
     <script type="text/javascript" src="./Public/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./Public/js/popper.min.js"></script>
+    <script type="text/javascript" src="./Public/js/plugin/jquery.flipster.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./Public/css/home/style.css"> -->
     <?php 
         if(isset($_GET['page'])) {
@@ -107,20 +110,20 @@
             <ul>
                 <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'login', $_SESSION['inforPage']['url'])); 
                                 ?>" class="login <?php if($_SESSION['inforPage']['page']=='login') { echo ('active disabled'); } 
-                                                        if($_SESSION['inforPage']['user']=='1') { echo ('disabled'); } 
+                                                        if($_SESSION['inforPage']['user']=='1' and $_SESSION['user']['username'] != NULL) { echo ('disabled'); } 
                                                     ?>">Đăng Nhập</a></li>
                 <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'home', $_SESSION['inforPage']['url'])); 
                                 ?>" class="home <?php if($_SESSION['inforPage']['page']=='home') { echo ('active disabled'); } ?>">Trang Chủ</a></li>
                 <li><a href="<?php echo (str_replace($_SESSION['inforPage']['page'], 'signup', $_SESSION['inforPage']['url'])); 
                                 ?>" class="signup <?php if($_SESSION['inforPage']['page']=='signup') { echo ('active disabled'); } 
-                                                        if($_SESSION['inforPage']['user']=='1') { echo ('disabled'); } 
+                                                        if($_SESSION['inforPage']['user']=='1' and $_SESSION['user']['username'] != NULL) { echo ('disabled'); } 
                                                     ?>">Đăng Ký</a></li>
             </ul>
         </div>
         <div class="menuHamburger">
             <div class="icon_menuHamburger"></div>
         </div>
-        <table class="account <?php if ($_SESSION['inforPage']['user'] == '0') { echo ('none'); } ?>">
+        <table class="account <?php if ($_SESSION['inforPage']['user']=='0' or $_SESSION['user']['username'] == NULL) { echo ('none'); } ?>">
             <tr>
                 <td class="name_account"><?php echo $_SESSION['user']['username']; ?></td>
                 <td rowspan="2" class="avatar_account" style="background: url('./Public/info/users/<?php echo $_SESSION['user']['avatar']; ?>'); 

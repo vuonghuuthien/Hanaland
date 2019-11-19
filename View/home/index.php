@@ -36,83 +36,41 @@
 <div class="bestProject" id="bestProject">
     <!-- Slideshow container -->
     <div class="slideshow-container">
-        <div class="background_slideshow" style="background: url('./Public/info/contents/1/1.png');
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                        background-position: 50% 50%; ">
+        <div class="background__slideshow"></div>
+        <div class="content_slides">
+            <div class="title__slides"></div>
+            <div class="intro__slides"></div>
         </div>
-        <!-- Full-width images with number and caption text -->
-        <!-- <div class="mySlides fade" style="background-image: url('./Public/img/contents/001/1.png');
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                        background-position: 50% 50%; ">
-            <div class="numbertext">1 / 3</div>
-            <div class="text">Caption Text ONE</div>
-        </div> -->
-        <?php
-            //$url = './Public/img/contents/1/1.png';
-            $urlContents = './Public/info/contents/';
-            $countImportant = count($important);
-            //var_dump($important);
-            if ($countImportant == 1) {
-                echo '<div class="mySlides mySlides_4 ">
-                        <img src="./Public/img/contents/1/main.jpg" alt="'.$important[1]['title'].'">
-                        <div class="numbertext">1 / 1</div>
-                        <div class="text">Caption Text 1</div> 
-                    </div>';
-            } else if ($countImportant <= 4) {
-                for ($i = 3; $i <= 3 + $countImportant - 1; $i++) {
-                    echo '<div class="mySlides mySlides_'.$i.' ">
-                            <img src="'.$urlContents.($i-2).'/main.jpg" alt="'.$important[$i-2]['title'].'">
-                            <div class="numbertext">'.($i-2).' / '.$countImportant.'</div>
-                            <div class="text">Caption Text '.($i-2).'</div> 
-                        </div>';
+        <div class="slideshow" id="carousel">
+            <ul class="flip-items">
+                <?php
+                $countImportant = count($important);
+                for ($i = 1; $i <= $countImportant; $i++) {
+                    echo ('<li>
+                                <img src="./Public/info/contents/'.$i.'/main.jpg">
+                                <div class="number_slide">'.$i.' / '.$countImportant.'</div>
+                                <div class="title_slide">'.$important[$i]['title'].'</div> 
+                                <div class="intro_slide none">'.$important[$i]['intro'].'</div> 
+                                <a href="www.gmail.com"> </a>
+                            </li>');
                 }
-            } else if ($countImportant == 5) {
-                for ($i = 2; $i <= 2 + $countImportant - 1; $i++) {
-                    echo '<div class="mySlides mySlides_'.$i.' ">
-                            <img src="'.$urlContents.($i-1).'/main.jpg" alt="'.$important[$i-1]['title'].'">
-                            <div class="numbertext">'.($i-1).' / '.$countImportant.'</div>
-                            <div class="text">Caption Text '.($i-1).'</div> 
-                        </div>';
-                }
-            } else if ($countImportant == 6) {
-                for ($i = 3; $i <= 3 + $countImportant - 1 - 1; $i++) {
-                    echo '<div class="mySlides mySlides_'.$i.' ">
-                            <img src="'.$urlContents.($i-2).'/main.jpg" alt="'.$important[$i-2]['title'].'">
-                            <div class="numbertext">'.($i-2).' / '.$countImportant.'</div>
-                            <div class="text">Caption Text '.($i-2).'</div> 
-                        </div>';
-                }
-                echo '<div class="mySlides mySlides_6 none">
-                        <img src="./Public/img/contents/4/main.jpg" alt="'.$important[4]['title'].'">
-                        <div class="numbertext">4 / 4</div>
-                        <div class="text">Caption Text 4</div> 
-                    </div>';
-            } else {
-                for ($i = 1; $i <= 7; $i++) {
-                    echo '<div class="mySlides mySlides_'.$i.' ">
-                            <img src="'.$urlContents.$i.'/main.jpg" alt="'.$important[$i]['title'].'">
-                            <div class="numbertext">'.$i.' / '.$countImportant.'</div>
-                            <div class="text">Caption Text '.$i.'</div> 
-                        </div>';
-                }
-                for ($i = 8; $i <= $countImportant; $i++) {
-                    echo '<div class="mySlides mySlides_'.$i.' none">
-                            <img src="'.$urlContents.$i.'/main.jpg" alt="'.$important[$i]['title'].'">
-                            <div class="numbertext">'.$i.' / '.$countImportant.'</div>
-                            <div class="text">Caption Text '.$i.'</div> 
-                        </div>';
-                }
-            }
-        ?>
-
-        <!-- Next and previous buttons -->
-        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-        <a class="prevSlideshow">&#10094;</a>
-        <a class="nextSlideshow">&#10095;</a>
+                ?>
+            
+            </ul>
+        </div>
     </div>
+    <script>
+        var carousel = $("#carousel").flipster({
+            style: 'carousel',
+            spacing: -0.28,
+            nav: false,
+            buttons:   true,
+            scrollwheel: false,
+            autoplay: 3000,
+            pauseOnHover: true,
+            loop: true,
+        });
+    </script>
     <br>
 
     <!-- The dots/circles -->
