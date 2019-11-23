@@ -5,10 +5,13 @@ var heightScroll2 = $(".bestProject").height();
 var posScroll3 = $(".allProject").position();
 var heightScroll3 = $(".allProject").height();
 var posScroll4 = $(".contact").position();
+var heightScroll4 = $(".contact").height();
+var heightWindow = $(window).height();
+
 var clickScroll = false;
 var posActiveScroll2 = posScroll2.top - heightScroll1/3;
 var posActiveScroll3 = posScroll3.top - heightScroll2/3;
-var posActiveScroll4 = posScroll4.top - 4*heightScroll3/5;
+var posActiveScroll4 = posScroll4.top - heightWindow;
 // rectangle start
 var rotateRect = -35.71; // deg
 var topRect_1 = 8.2; // vh
@@ -87,6 +90,7 @@ $( () => {
                 $(".scroll ul a.scroll_4").addClass("active");
             }
             // more ...
+            
             if ((windowTop >= posActiveScroll2 && windowTop < (posActiveScroll2+heightScroll2/2))
                 || (windowTop >= posActiveScroll4)) {
                 $(".scroll ul a").css("color", "#eee");
@@ -95,6 +99,7 @@ $( () => {
                 $(".scroll ul a").css("color", "#d7f4a5");
                 $(".scroll ul a.active").css("color", "#6ebb24");
             }
+            
         }
         
         if (windowTop <= posActiveScroll2) {
@@ -168,23 +173,36 @@ $( () => {
 		$("html,body").animate(
 			{
 				scrollTop: 0
-			},
-			500
+			}, 500, function() {
+                clickScroll = false;
+            }
         );
         $(".scroll ul a").removeClass("active");
         $(".scroll ul a.scroll_1").addClass("active");
+        //
+        $(".scroll ul a").css("color", "#d7f4a5");
+        $(".scroll ul a.active").css("color", "#6ebb24");
     });
     $(".scroll_2").on("click", () => {
         $(".scroll ul a").removeClass("active");
         $(".scroll ul a.scroll_2").addClass("active");
+        //
+        $(".scroll ul a").css("color", "#eee");
+        $(".scroll ul a.active").css("color", "#6ebb24");
     });
     $(".scroll_3").on("click", () => {
         $(".scroll ul a").removeClass("active");
         $(".scroll ul a.scroll_3").addClass("active");
+        //
+        $(".scroll ul a").css("color", "#d7f4a5");
+        $(".scroll ul a.active").css("color", "#6ebb24");
     });
     $(".scroll_4").on("click", () => {
         $(".scroll ul a").removeClass("active");
         $(".scroll ul a.scroll_4").addClass("active");
+        //
+        $(".scroll ul a").css("color", "#eee");
+        $(".scroll ul a.active").css("color", "#6ebb24");
     });
     $(".arrowDownDouble").on("click", () => {
         $('.scroll_2').click(); 
@@ -214,6 +232,7 @@ $( () => {
     }, timePlaySlideshow);
     // slides
     
+
     
 });
 

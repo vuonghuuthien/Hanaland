@@ -29,7 +29,7 @@
     top: -11.5vh;
     /* right: 668px; */
     right: 45vw;
-    background: #eee;
+    background: #F5F6F7;
 }
 /*
 .rectangle_1_moved {
@@ -88,7 +88,7 @@
     width: 100%;
     height: 100%;
 }
-.logo_white {
+.welcome .logo_white {
     /* position: fixed;
     top: calc(50% - 220px);
     left: calc(50% - 105px); */
@@ -103,7 +103,7 @@
     height: 220px;
     width: 220px;
 }
-.title {
+.welcome .title {
     height: 85px;
     width: 595px; /* = x7 height */
     left: 0;
@@ -116,7 +116,7 @@
     background-position: 50% 50%;
     transition-duration: 0.25s;
 }
-.slogan {
+.welcome .slogan {
     text-align: center;
     margin-top: 1.1%;
     color: #fff;
@@ -195,6 +195,8 @@
 }
 
 .bestProject {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 100%;
 }
@@ -207,10 +209,6 @@
     -webkit-box-shadow: 0px 24px 62px 0px rgba(0,0,0,0.18);
     -moz-box-shadow: 0px 24px 62px 0px rgba(0,0,0,0.18);
     box-shadow: 0px 24px 62px 0px rgba(0,0,0,0.18);
-}
-.allProject {
-    width: 100%;
-    height: 100%;
 }
 
 /* Style for slideshow */
@@ -326,11 +324,140 @@
     from {opacity: .4}
     to {opacity: 1}
 }
+/* allProject */
+.allProject {
+    width: 100%;
+    min-height: calc(370px * 2 + 3rem);
+    background: #F5F6F7;
+    margin-top: calc(-1 * var(--heightNavBarShort));
+    padding-top: var(--heightNavBarShort);
+}
+.allProject .title {
+    width: 100%;
+    font-family: 'Atziluth';
+    font-size: 5rem;
+    font-weight: bolder;
+    color: #a0e62c;
+    cursor: default;
+    text-shadow: 
+            1px  1px     #fff, 
+        -1px  1px     #fff, 
+            1px -1px     #fff, 
+        -1px -1px     #fff,
+            1px  1px 5px #555;
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+.allProject .row {
+    width: 100%;
+    max-width: 55rem;
+    margin: 0 auto;
+    overflow:auto;
+}
+.allProject .card {
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    width: 25%;
+    height: 370px;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    margin: 0 0 1.6rem;
+}
+.allProject .card a {
+    position: absolute;
+    width: calc(100% - 1.6rem);
+    height: 100%;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid#DFE1E6;
+    text-decoration: none;
+    transition: all 250ms ease-out;
+    overflow: hidden;
+    font-size: 0.8rem;
+}
+.allProject .card a:hover {
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+    -webkit-box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.image__card {
+    width: 100%; 
+    position: relative;
+    transition: .5s ease;
+}
+.image__card img {
+    width: 100%;
+    object-fit: cover;
+}
+.title__card {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    color: #fff;
+}
+.status__card {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing:border-box;
+    padding: 2px 8px;
+}
+.card .comment {
+    color: #2ECC71;
+}
+.card .seen {
+    color: rgb(25, 172, 226);
+}
+/* Rating Card */
+.status__card .rating .star--unchecked {
+    color: #ddd;
+}
+.status__card .rating .star--checked {
+    color: #FFD700;
+}
+.star--unchecked {
+    color: #ddd;
+}
+.star__half { position: relative; color: #ddd;}
+.star__half::after {
+    content: "\f089";
+    color: #FFD700;
+    position: absolute;
+    right: 0;
+}
+.card .money {
+    color: red;
 
+}
+.card .money span {
+    font-weight: bold;
+}
+.card .map-marker {
+    color: #F44336;
+}
+.card .compass {
+    color: #3F51B5;
+}
+.card .area {
+    color: #E91E63;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.card a:hover .image__card {
+    margin-top: -225px;
+
+}
+/* footer */
 .footer
 {
     bottom: 0;
-    height: 18rem;
     width: 100%;
     background: #292929;
 }
@@ -376,12 +503,14 @@
     width: 32%;
     color: #fff;
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     justify-content: space-between;
 }
 .social__contact__footer
 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     align-items: center;
 }
 .icon__social

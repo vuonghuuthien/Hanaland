@@ -81,7 +81,62 @@
     </div> -->
 </div>
 <div class="allProject" id="allProject">
+    <div class="title">All Project</div>
+    <div class="row">
+        <?php
+        $countImportant = count($important);
+        $countImportant = 10;
+        $countStar = 3.5;
+        $temp = '';
+        if (($countStar-floor($countStar)) > 0) {
+            $temp = '<i class="fa fa-star star__half"></i>';            
+        }
+        //echo(floor(3.5));
+        //echo(3.5-floor(3.5));
+        //<img src="./Public/info/contents/1/main.jpg">
+        for ($i = 1; $i <= $countImportant; $i++) { 
+            echo ('<div class="card">
+                    <a href="www.gmail.com">
+                        <div class="image__card">
+                            <img src="./Public/img/img/text'.$i.'.gif">
+                            <div class="title__card">Khu Sample ProVinperl AAA Hello World</div> 
+                        </div>
+                        <div class="status__card">
+                            <div class="comment">
+                                <i class="fa fa-comment-alt"></i>&nbsp;<span>9999</span>
+                            </div>
+                            <div class="seen">
+                                <i class="fas fa-eye"></i>&nbsp;<span>9999</span>
+                            </div>
+                            <div class="rating">
+                                '.str_repeat('<i class="fa fa-star star--checked"></i>', floor($countStar)).$temp.str_repeat('<i class="fa fa-star star--unchecked"></i>', 5-ceil($countStar)).'
+                            </div>
+                        </div>
+                        <div class="status__card">
+                            <div class="compass">
+                                <i class="fas fa-compass"></i>&nbsp;<span>Đông Nam</span>
+                            </div>
+                            <div class="money">
+                                <i class="fas fa-money-bill-wave"></i>&nbsp;<span>999Tr&nbsp;<u>đ</u></span>
+                            </div>
+                        </div>
+                        <div class="status__card">
+                            <div class="area">
+                                <i class="fas fa-vector-square"></i>&nbsp;<span>5x20, 5x18, 5x22, 5x20, 5x18</span>
+                            </div>
+                        </div>
+                        <div class="map-marker none">
+                            <i class="fas fa-map-marker-alt"></i></i>&nbsp;<span>TP.Hồ Chí Minh, Quận Bình Tân, Phường Tân Tạo</span>
+                        </div>
 
+                    </a>
+                </div>');
+        }
+
+        ?>
+
+    </div>
+    
 </div>
 <div class="contact footer" id="contact">
     <div class="title__footer">Liên hệ với chúng tôi</div>

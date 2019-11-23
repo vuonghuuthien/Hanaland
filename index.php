@@ -100,6 +100,8 @@
         @font-face { font-family: Myriad; src: url('./Public/fonts/Myriad/MyriadPro-Regular.otf'); }
         @font-face { font-family: CenturyBold; src: url('./Public/fonts/Century/GOTHICB.TTF'); }
         @font-face { font-family: SourceSansPro; src: url('./Public/fonts/SourceSansPro/SourceSansPro.ttf'); }
+        @font-face { font-family: Amarillo; src: url('./Public/fonts/Amarillo/Amarillo.ttf'); }
+        @font-face { font-family: Atziluth; src: url('./Public/fonts/Atziluth/Atziluth Script.ttf'); }
     </style>
     <title>Hanaland</title>
 </head>
